@@ -1,4 +1,4 @@
-import ListNode from '../ds/ListNode'
+import {ListNode} from '../index'
 
 
 describe('#ListNode - constructor',() => {
