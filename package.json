@@ -33,7 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm prettier:write && npm prettier:check"
+      "pre-commit": "lint-staged && npm run prettier:write && npm run prettier:check"
     }
   },
   "lint-staged": {
