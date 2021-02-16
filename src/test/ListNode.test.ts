@@ -1,7 +1,7 @@
 import ListNode from '../ds/ListNode'
 
 
-describe('#ListNode-constructor',() => {
+describe('#ListNode - constructor',() => {
     it('should construct new node with given data',() => {
         const data: number = 5;
         const freshNode = new ListNode<number>(5);
