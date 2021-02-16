@@ -32,13 +32,13 @@
       "^.+\\.(ts|tsx)$": "ts-jest"
     }
   },
+  "lint-staged": {
+    "*.{js,ts,json}": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run precommit"
     }
-  },
-  "lint-staged": {
-    "*.{js,ts,json}": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
   }
 }
