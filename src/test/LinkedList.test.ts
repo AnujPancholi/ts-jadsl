@@ -26,4 +26,11 @@ describe('#LinkedList - constructor',() => {
 
         expect(w).toBeNull();
     })
+
+    test("make empty list if empty array passed",() => {
+        const freshList: LinkedList<number> = new LinkedList<number>([]);
+        
+        expect(freshList.head).toBeNull();
+        expect(freshList.length()).toEqual(0);
+    })
 })
