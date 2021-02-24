@@ -2,13 +2,13 @@ import ListNode from './ListNode'
 
 class LinkedList<T>{
     head: ListNode<T> | null;
-    #length: number;
+    private _length: number;
 
     constructor(initArray: T[]);
     constructor();
     constructor(initArray?: T[]){
         this.head = null;
-        this.#length = 0;
+        this._length = 0;
         let tail: ListNode<T> | null = null;
         if(initArray){
             for(const item of initArray){
@@ -19,13 +19,13 @@ class LinkedList<T>{
                     tail.next = freshNode;
                 }
                 tail = freshNode;
-                ++this.#length;
+                ++this._length;
             }
         }
     }
 
     length(): number{
-        return this.#length;
+        return this._length;
     }
 }
 
