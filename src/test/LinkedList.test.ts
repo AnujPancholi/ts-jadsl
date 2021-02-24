@@ -28,6 +28,7 @@ describe('#LinkedList - constructor',() => {
 describe('#LinkedList - get',() => {
     const listData = [5,6,4,5,6,67,342432,4,5,6,23,4,0]
     const list = new LinkedList<number>(listData);
+    const emptyList = new LinkedList<number>();
 
     test('fetch values for valid indices',() => {
         for(let i = 0;i<listData.length;++i){
@@ -38,6 +39,12 @@ describe('#LinkedList - get',() => {
     test('fetch null for invalid indices',() => {
         expect(list.get(-1)).toBeNull();
         expect(list.get(listData.length)).toBeNull();
+    })
+
+    test('fetch null for any index in empty list',() => {
+        for(let i = -2;i<6;++i){
+            expect(emptyList.get(i)).toBeNull();
+        }
     })
 
 })
