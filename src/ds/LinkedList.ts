@@ -11,7 +11,6 @@ class LinkedList<T>{
         this._head = null;
         this._tail = null;
         this._length = 0;
-        // let tail: ListNode<T> | null = null;
         if(initArray){
             for(const item of initArray){
                 const freshNode = new ListNode<T>(item);
@@ -28,6 +27,18 @@ class LinkedList<T>{
 
     length(): number{
         return this._length;
+    }
+
+    get(index: number): T | null {
+        if(index<0 || index>=this._length){
+            return null;
+        }
+        let walkerNode: ListNode<T> | null = this._head;
+        for(let i=0;i<index;++i){
+            walkerNode = walkerNode?.next || null;
+        }
+
+        return walkerNode?.value ?? null;
     }
 }
 
