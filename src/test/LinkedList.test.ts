@@ -1,103 +1,98 @@
-import {LinkedList} from '../index';
+import { LinkedList } from "../index";
 
+describe("#LinkedList - constructor", () => {
+  test("make empty list", () => {
+    const freshList = new LinkedList<number>();
 
-describe('#LinkedList - constructor',() => {
-    test("make empty list",() => {
-        const freshList = new LinkedList<number>();
+    expect(freshList.get(0)).toBeNull();
+    expect(freshList.length()).toBe(0);
+  });
 
-        expect(freshList.get(0)).toBeNull();
-        expect(freshList.length()).toBe(0);
-    })
+  test("make list initialized with array", () => {
+    const listData = [3, 4, 5, 2, 6, 1, 3];
+    const freshList: LinkedList<number> = new LinkedList<number>(listData);
 
-    test("make list initialized with array",() => {
-        const listData = [3,4,5,2,6,1,3];
-        const freshList: LinkedList<number> = new LinkedList<number>(listData);
+    expect(freshList.length()).toEqual(listData.length);
+  });
 
-        expect(freshList.length()).toEqual(listData.length);
+  test("make empty list if empty array passed", () => {
+    const freshList: LinkedList<number> = new LinkedList<number>([]);
 
-    })
+    expect(freshList.get(0)).toBeNull();
+    expect(freshList.length()).toEqual(0);
+  });
+});
 
-    test("make empty list if empty array passed",() => {
-        const freshList: LinkedList<number> = new LinkedList<number>([]);
-        
-        expect(freshList.get(0)).toBeNull();
-        expect(freshList.length()).toEqual(0);
-    })
-})
+describe("#LinkedList - get", () => {
+  const listData = [5, 6, 4, 5, 6, 67, 342432, 4, 5, 6, 23, 4, 0];
+  const list = new LinkedList<number>(listData);
+  const emptyList = new LinkedList<number>();
 
-describe('#LinkedList - get',() => {
-    const listData = [5,6,4,5,6,67,342432,4,5,6,23,4,0]
-    const list = new LinkedList<number>(listData);
+  test("fetch values for valid indices", () => {
+    for (let i = 0; i < listData.length; ++i) {
+      expect(list.get(i)).toEqual(listData[i]);
+    }
+  });
+
+  test("fetch null for invalid indices", () => {
+    expect(list.get(-1)).toBeNull();
+    expect(list.get(listData.length)).toBeNull();
+  });
+
+  test("fetch null for any index in empty list", () => {
+    for (let i = -2; i < 6; ++i) {
+      expect(emptyList.get(i)).toBeNull();
+    }
+  });
+});
+
+describe("#LinkedList - insertAt", () => {
+  let listData: number[];
+  let list: LinkedList<number>;
+
+  beforeEach(() => {
+    listData = [3, 4, 5, 6, 4, 5, 0, -1, 7, -4, 0, 99];
+    list = new LinkedList<number>(listData);
+  });
+
+  test("do nothing for invalid indices", () => {
+    list.insertAt(-1, 8);
+    expect(list.length()).toEqual(listData.length);
+    list.insertAt(50, 8);
+    expect(list.length()).toEqual(listData.length);
+    for (let i = 0; i < listData.length; ++i) {
+      expect(list.get(i)).toEqual(listData[i]);
+    }
+  });
+
+  test("insert at head for 0 index", () => {
+    list.insertAt(0, 55);
+    expect(list.length()).toEqual(listData.length + 1);
+    expect(list.get(0)).toEqual(55);
+    expect(list.get(1)).toEqual(listData[0]);
+
     const emptyList = new LinkedList<number>();
+    expect(emptyList.length()).toEqual(0);
+    expect(emptyList.get(0)).toBeNull();
+    emptyList.insertAt(0, 55);
+    expect(emptyList.get(0)).toEqual(55);
+    expect(emptyList.length()).toEqual(1);
+  });
 
-    test('fetch values for valid indices',() => {
-        for(let i = 0;i<listData.length;++i){
-            expect(list.get(i)).toEqual(listData[i]);
-        }
-    })
+  test("insert at index", () => {
+    const insertionIndex = 4;
+    const data = 55;
 
-    test('fetch null for invalid indices',() => {
-        expect(list.get(-1)).toBeNull();
-        expect(list.get(listData.length)).toBeNull();
-    })
+    list.insertAt(insertionIndex, data);
+    expect(list.length()).toEqual(listData.length + 1);
+    expect(list.get(insertionIndex)).toEqual(data);
+    expect(list.get(insertionIndex - 1)).toEqual(listData[insertionIndex - 1]);
+    expect(list.get(insertionIndex + 1)).toEqual(listData[insertionIndex]);
 
-    test('fetch null for any index in empty list',() => {
-        for(let i = -2;i<6;++i){
-            expect(emptyList.get(i)).toBeNull();
-        }
-    })
-
-})
-
-describe('#LinkedList - insertAt',() => {
-    let listData: number[];
-    let list: LinkedList<number>;
-
-    beforeEach(() => {
-        listData = [3,4,5,6,4,5,0,-1,7,-4,0,99];
-        list = new LinkedList<number>(listData);
-    })
-
-    test('do nothing for invalid indices',() => {
-        list.insertAt(-1,8);
-        expect(list.length()).toEqual(listData.length);
-        list.insertAt(50,8);
-        expect(list.length()).toEqual(listData.length);
-        for(let i=0;i<listData.length;++i){
-            expect(list.get(i)).toEqual(listData[i]);
-        }
-    })
-
-    test('insert at head for 0 index',() => {
-        list.insertAt(0,55);
-        expect(list.length()).toEqual(listData.length+1);
-        expect(list.get(0)).toEqual(55);
-        expect(list.get(1)).toEqual(listData[0]);
-
-        const emptyList = new LinkedList<number>();
-        expect(emptyList.length()).toEqual(0);
-        expect(emptyList.get(0)).toBeNull();
-
-        emptyList.insertAt(0,55);
-        expect(emptyList.get(0)).toEqual(55);
-        expect(emptyList.length()).toEqual(1);
-    })
-
-    test('insert at index',() => {
-        const insertionIndex = 4;
-        const data = 55;
-
-        list.insertAt(insertionIndex,data);
-        expect(list.length()).toEqual(listData.length+1);
-        expect(list.get(insertionIndex)).toEqual(data);
-        expect(list.get(insertionIndex - 1)).toEqual(listData[insertionIndex - 1]);
-        expect(list.get(insertionIndex+1)).toEqual(listData[insertionIndex])
-
-        const tailInsertionData = 17;
-        list.insertAt(list.length(),tailInsertionData);
-        expect(list.length()).toEqual(listData.length+2);
-        expect(list.get(list.length()-1)).toEqual(tailInsertionData);
-        expect(list.get(list.length())).toBeNull();
-
-    })
-})
+    const tailInsertionData = 17;
+    list.insertAt(list.length(), tailInsertionData);
+    expect(list.length()).toEqual(listData.length + 2);
+    expect(list.get(list.length() - 1)).toEqual(tailInsertionData);
+    expect(list.get(list.length())).toBeNull();
+  });
+});
