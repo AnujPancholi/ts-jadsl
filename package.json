@@ -35,7 +35,7 @@
   },
   "lint-staged": {
     "*.{js,ts,json}": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,css,ts,md}": "prettier --write"
   },
   "husky": {
     "hooks": {
