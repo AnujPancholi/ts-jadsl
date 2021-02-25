@@ -96,3 +96,21 @@ describe("#LinkedList - insertAt", () => {
     expect(list.get(list.length())).toBeNull();
   });
 });
+
+describe("#LinkedList - toArray", () => {
+  const listData = [3, 4, 2, 5, 0, -1, 4, -1, 0, 6, 56];
+
+  test("should convert to array", () => {
+    const list = new LinkedList<number>(listData);
+    const arr = list.toArray();
+    expect(arr.length).toEqual(listData.length);
+    listData.forEach((value, index) => {
+      expect(arr[index]).toEqual(value);
+    });
+  });
+
+  test("should return empty array for empty list", () => {
+    const arr = new LinkedList<number>().toArray();
+    expect(arr.length).toEqual(0);
+  });
+});

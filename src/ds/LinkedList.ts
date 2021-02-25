@@ -69,6 +69,16 @@ class LinkedList<T> {
     }
     ++this._length;
   }
+
+  toArray(): T[] {
+    const arr: T[] = [];
+    let walker: ListNode<T> | null = this._head;
+    while (walker !== null) {
+      arr.push(walker.value);
+      walker = walker.next;
+    }
+    return arr;
+  }
 }
 
 export default LinkedList;
