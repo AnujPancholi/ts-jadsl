@@ -48,3 +48,56 @@ describe('#LinkedList - get',() => {
     })
 
 })
+
+describe('#LinkedList - insertAt',() => {
+    let listData: number[];
+    let list: LinkedList<number>;
+
+    beforeEach(() => {
+        listData = [3,4,5,6,4,5,0,-1,7,-4,0,99];
+        list = new LinkedList<number>(listData);
+    })
+
+    test('do nothing for invalid indices',() => {
+        list.insertAt(-1,8);
+        expect(list.length()).toEqual(listData.length);
+        list.insertAt(50,8);
+        expect(list.length()).toEqual(listData.length);
+        for(let i=0;i<listData.length;++i){
+            expect(list.get(i)).toEqual(listData[i]);
+        }
+    })
+
+    test('insert at head for 0 index',() => {
+        list.insertAt(0,55);
+        expect(list.length()).toEqual(listData.length+1);
+        expect(list.get(0)).toEqual(55);
+        expect(list.get(1)).toEqual(listData[0]);
+
+        const emptyList = new LinkedList<number>();
+        expect(emptyList.length()).toEqual(0);
+        expect(emptyList.get(0)).toBeNull();
+
+        emptyList.insertAt(0,55);
+        expect(emptyList.get(0)).toEqual(55);
+        expect(emptyList.length()).toEqual(1);
+    })
+
+    test('insert at index',() => {
+        const insertionIndex = 4;
+        const data = 55;
+
+        list.insertAt(insertionIndex,data);
+        expect(list.length()).toEqual(listData.length+1);
+        expect(list.get(insertionIndex)).toEqual(data);
+        expect(list.get(insertionIndex - 1)).toEqual(listData[insertionIndex - 1]);
+        expect(list.get(insertionIndex+1)).toEqual(listData[insertionIndex])
+
+        const tailInsertionData = 17;
+        list.insertAt(list.length(),tailInsertionData);
+        expect(list.length()).toEqual(listData.length+2);
+        expect(list.get(list.length()-1)).toEqual(tailInsertionData);
+        expect(list.get(list.length())).toBeNull();
+
+    })
+})
