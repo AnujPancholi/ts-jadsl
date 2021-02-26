@@ -41,9 +41,9 @@ class LinkedList<T> {
     return walkerNode?.value ?? null;
   }
 
-  insertAt(index: number, value: T): void {
+  insertAt(index: number, value: T): LinkedList<T> {
     if (index < 0 || index > this._length) {
-      return;
+      return this;
     }
 
     const freshNode = new ListNode<T>(value);
@@ -68,6 +68,7 @@ class LinkedList<T> {
       }
     }
     ++this._length;
+    return this;
   }
 
   toArray(): T[] {

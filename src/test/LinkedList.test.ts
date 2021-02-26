@@ -66,10 +66,12 @@ describe("#LinkedList - insertAt", () => {
   });
 
   test("insert at head for 0 index", () => {
-    list.insertAt(0, 55);
+    const returnedList = list.insertAt(0, 55);
     expect(list.length()).toEqual(listData.length + 1);
     expect(list.get(0)).toEqual(55);
     expect(list.get(1)).toEqual(listData[0]);
+
+    expect(returnedList === list).toBe(true);
 
     const emptyList = new LinkedList<number>();
     expect(emptyList.length()).toEqual(0);
@@ -83,11 +85,13 @@ describe("#LinkedList - insertAt", () => {
     const insertionIndex = 4;
     const data = 55;
 
-    list.insertAt(insertionIndex, data);
+    const returnedList = list.insertAt(insertionIndex, data);
     expect(list.length()).toEqual(listData.length + 1);
     expect(list.get(insertionIndex)).toEqual(data);
     expect(list.get(insertionIndex - 1)).toEqual(listData[insertionIndex - 1]);
     expect(list.get(insertionIndex + 1)).toEqual(listData[insertionIndex]);
+
+    expect(returnedList === list).toBe(true);
 
     const tailInsertionData = 17;
     list.insertAt(list.length(), tailInsertionData);
