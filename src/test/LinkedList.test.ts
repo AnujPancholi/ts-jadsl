@@ -118,3 +118,16 @@ describe("#LinkedList - toArray", () => {
     expect(arr.length).toEqual(0);
   });
 });
+
+describe("#LinkedList - getHeadNode", () => {
+  const listData = [4, 5, 6, 3, 4, 5, 0, -1, 4, 45];
+  const list = new LinkedList<number>(listData);
+  test("should return head node", () => {
+    let node = list.getHeadNode();
+    for (let i = 0; i < listData.length; ++i) {
+      expect(node ? node.value : null).toEqual(listData[i]);
+      node = node ? node.next : null;
+    }
+    expect(node).toBeNull();
+  });
+});

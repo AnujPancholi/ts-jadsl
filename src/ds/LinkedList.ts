@@ -29,6 +29,10 @@ class LinkedList<T> {
     return this._length;
   }
 
+  getHeadNode(): ListNode<T> | null {
+    return this._head;
+  }
+
   get(index: number): T | null {
     if (index < 0 || index >= this._length) {
       return null;
