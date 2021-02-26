@@ -42,32 +42,30 @@ class LinkedList<T> {
   }
 
   insertAt(index: number, value: T): LinkedList<T> {
-    if (index < 0 || index > this._length) {
-      return this;
-    }
+    if (index >= 0 && index <= this._length) {
+      const freshNode = new ListNode<T>(value);
 
-    const freshNode = new ListNode<T>(value);
-
-    if (index === 0) {
-      freshNode.next = this._head;
-      this._head = freshNode;
-      if (this._head && this._head.next === null) {
-        this._tail = this._head;
+      if (index === 0) {
+        freshNode.next = this._head;
+        this._head = freshNode;
+        if (this._head && this._head.next === null) {
+          this._tail = this._head;
+        }
+      } else {
+        let walker: ListNode<T> | null = this._head;
+        for (let i = 0; i < index - 1; ++i) {
+          walker = walker?.next || null;
+        }
+        freshNode.next = walker?.next || null;
+        if (walker === this._tail) {
+          this._tail = freshNode;
+        }
+        if (walker) {
+          walker.next = freshNode;
+        }
       }
-    } else {
-      let walker: ListNode<T> | null = this._head;
-      for (let i = 0; i < index - 1; ++i) {
-        walker = walker?.next || null;
-      }
-      freshNode.next = walker?.next || null;
-      if (walker === this._tail) {
-        this._tail = freshNode;
-      }
-      if (walker) {
-        walker.next = freshNode;
-      }
+      ++this._length;
     }
-    ++this._length;
     return this;
   }
 
