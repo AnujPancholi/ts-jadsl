@@ -29,6 +29,7 @@ class LinkedList<T> {
     return this._length;
   }
 
+  //if the user wishes to forgo the abstraction and reference the head node of the list
   getHeadNode(): ListNode<T> | null {
     return this._head;
   }
