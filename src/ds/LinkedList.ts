@@ -74,6 +74,20 @@ class LinkedList<T> {
     return this;
   }
 
+  deleteAt(index: number): LinkedList<T> {
+    if (index >= 0 && index < this._length) {
+      if (index === 0) {
+        const nodeToDelete = this._head;
+        this._head = this._head?.next ?? null;
+        if (nodeToDelete) {
+          nodeToDelete.next = null;
+        }
+      }
+    }
+
+    return this;
+  }
+
   toArray(): T[] {
     const arr: T[] = [];
     let walker: ListNode<T> | null = this._head;

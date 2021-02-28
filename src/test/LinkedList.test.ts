@@ -1,4 +1,4 @@
-import { LinkedList } from "../index";
+import { LinkedList, ListNode } from "../index";
 
 describe("#LinkedList - constructor", () => {
   test("make empty list", () => {
@@ -129,5 +129,27 @@ describe("#LinkedList - getHeadNode", () => {
       node = node ? node.next : null;
     }
     expect(node).toBeNull();
+  });
+});
+
+describe("#LinkedList - deleteAt", () => {
+  const listData = [3, -1, 7, 8, 0, 99, 7, 53, 345, 0, 33];
+  const list = new LinkedList<number>(listData);
+
+  test("make no change if index invalid", () => {
+    list.deleteAt(-1);
+    list.deleteAt(listData.length);
+    list.deleteAt(listData.length + 1);
+
+    expect(list.length()).toEqual(listData.length);
+    let walkerNode: ListNode<number> | null = list.getHeadNode(),
+      i = 0;
+    while (walkerNode !== null) {
+      expect(walkerNode.value).toEqual(listData[i]);
+      walkerNode = walkerNode.next;
+      ++i;
+    }
+
+    expect(i).toEqual(listData.length);
   });
 });
