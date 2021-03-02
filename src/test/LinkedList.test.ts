@@ -182,4 +182,21 @@ describe("#LinkedList - deleteAt", () => {
 
     expect(i).toEqual(listData.length);
   });
+
+  test("delete at index", () => {
+    const indexToDelete = 3;
+    list.deleteAt(indexToDelete);
+
+    expect(list.length()).toEqual(listData.length - 1);
+
+    let walkerNode: ListNode<number> | null = list.getHeadNode(),
+      i = 0;
+    while (i < indexToDelete && walkerNode !== null) {
+      expect(walkerNode.value).toEqual(listData[i]);
+      walkerNode = walkerNode.next;
+      ++i;
+    }
+
+    expect(walkerNode ? walkerNode.value : null).toEqual(listData[i + 1]);
+  });
 });

@@ -82,6 +82,18 @@ class LinkedList<T> {
         if (nodeToDelete) {
           nodeToDelete.next = null;
         }
+      } else {
+        let i = 0,
+          walkerNode: ListNode<T> | null = this._head;
+        while (i < index - 1 && walkerNode !== null) {
+          walkerNode = walkerNode.next;
+          ++i;
+        }
+        const nodeToDelete = walkerNode?.next || null;
+        if (nodeToDelete && walkerNode) {
+          walkerNode.next = nodeToDelete.next;
+          nodeToDelete.next = null;
+        }
       }
 
       --this._length;
