@@ -136,6 +136,16 @@ describe("#LinkedList - deleteAt", () => {
   const listData = [3, -1, 7, 8, 0, 99, 7, 53, 345, 0, 33];
   const list = new LinkedList<number>(listData);
 
+  test("do nothing for empty list", () => {
+    const emptyList: LinkedList<number> = new LinkedList<number>();
+
+    emptyList.deleteAt(-1);
+    emptyList.deleteAt(0);
+    emptyList.deleteAt(1);
+
+    expect(emptyList.getHeadNode()).toBeNull();
+  });
+
   test("make no change if index invalid", () => {
     list.deleteAt(-1);
     list.deleteAt(listData.length);
