@@ -199,4 +199,13 @@ describe("#LinkedList - deleteAt", () => {
 
     expect(walkerNode ? walkerNode.value : null).toEqual(listData[i + 1]);
   });
+
+  test("delete at tail if last index supplied", () => {
+    list.deleteAt(list.length() - 1);
+    expect(list.length()).toEqual(listData.length - 1);
+
+    const tailValue = list.get(list.length() - 1);
+
+    expect(tailValue).toEqual(listData[listData.length - 2]);
+  });
 });
