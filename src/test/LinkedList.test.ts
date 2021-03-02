@@ -134,7 +134,11 @@ describe("#LinkedList - getHeadNode", () => {
 
 describe("#LinkedList - deleteAt", () => {
   const listData = [3, -1, 7, 8, 0, 99, 7, 53, 345, 0, 33];
-  const list = new LinkedList<number>(listData);
+  let list: LinkedList<number>;
+
+  beforeEach(() => {
+    list = new LinkedList<number>(listData);
+  });
 
   test("do nothing for empty list", () => {
     const emptyList: LinkedList<number> = new LinkedList<number>();
@@ -154,6 +158,22 @@ describe("#LinkedList - deleteAt", () => {
     expect(list.length()).toEqual(listData.length);
     let walkerNode: ListNode<number> | null = list.getHeadNode(),
       i = 0;
+    while (walkerNode !== null) {
+      expect(walkerNode.value).toEqual(listData[i]);
+      walkerNode = walkerNode.next;
+      ++i;
+    }
+
+    expect(i).toEqual(listData.length);
+  });
+
+  test("delete at head for index 0", () => {
+    list.deleteAt(0);
+
+    expect(list.length()).toEqual(listData.length - 1);
+
+    let walkerNode: ListNode<number> | null = list.getHeadNode(),
+      i = 1;
     while (walkerNode !== null) {
       expect(walkerNode.value).toEqual(listData[i]);
       walkerNode = walkerNode.next;

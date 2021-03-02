@@ -83,6 +83,8 @@ class LinkedList<T> {
           nodeToDelete.next = null;
         }
       }
+
+      --this._length;
     }
 
     return this;
