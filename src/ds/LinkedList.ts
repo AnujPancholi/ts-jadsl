@@ -74,12 +74,14 @@ class LinkedList<T> {
     return this;
   }
 
-  deleteAt(index: number): LinkedList<T> {
+  deleteAt(index: number): T | null {
+    let deletedVal: T | null = null;
     if (index >= 0 && index < this._length) {
       if (index === 0) {
         const nodeToDelete = this._head;
         this._head = this._head?.next ?? null;
         if (nodeToDelete) {
+          deletedVal = nodeToDelete.value;
           nodeToDelete.next = null;
         }
       } else {
@@ -91,6 +93,7 @@ class LinkedList<T> {
         }
         const nodeToDelete = walkerNode?.next || null;
         if (nodeToDelete && walkerNode) {
+          deletedVal = nodeToDelete.value;
           walkerNode.next = nodeToDelete.next;
           if (walkerNode.next === null) {
             this._tail = walkerNode;
@@ -102,7 +105,7 @@ class LinkedList<T> {
       --this._length;
     }
 
-    return this;
+    return deletedVal;
   }
 
   toArray(): T[] {

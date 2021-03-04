@@ -143,15 +143,16 @@ describe("#LinkedList - deleteAt", () => {
   test("do nothing for empty list", () => {
     const emptyList: LinkedList<number> = new LinkedList<number>();
 
-    emptyList.deleteAt(-1);
+    const deletedValue = emptyList.deleteAt(-1);
     emptyList.deleteAt(0);
     emptyList.deleteAt(1);
 
     expect(emptyList.getHeadNode()).toBeNull();
+    expect(deletedValue).toBeNull();
   });
 
   test("make no change if index invalid", () => {
-    list.deleteAt(-1);
+    const deletedValue = list.deleteAt(-1);
     list.deleteAt(listData.length);
     list.deleteAt(listData.length + 1);
 
@@ -165,10 +166,11 @@ describe("#LinkedList - deleteAt", () => {
     }
 
     expect(i).toEqual(listData.length);
+    expect(deletedValue).toBeNull();
   });
 
   test("delete at head for index 0", () => {
-    list.deleteAt(0);
+    const deletedValue = list.deleteAt(0);
 
     expect(list.length()).toEqual(listData.length - 1);
 
@@ -181,11 +183,12 @@ describe("#LinkedList - deleteAt", () => {
     }
 
     expect(i).toEqual(listData.length);
+    expect(deletedValue).toEqual(listData[0]);
   });
 
   test("delete at index", () => {
     const indexToDelete = 3;
-    list.deleteAt(indexToDelete);
+    const deletedValue = list.deleteAt(indexToDelete);
 
     expect(list.length()).toEqual(listData.length - 1);
 
@@ -198,6 +201,7 @@ describe("#LinkedList - deleteAt", () => {
     }
 
     expect(walkerNode ? walkerNode.value : null).toEqual(listData[i + 1]);
+    expect(deletedValue).toEqual(listData[3]);
   });
 
   test("delete at tail if last index supplied", () => {
