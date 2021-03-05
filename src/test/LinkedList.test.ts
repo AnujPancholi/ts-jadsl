@@ -205,11 +205,12 @@ describe("#LinkedList - deleteAt", () => {
   });
 
   test("delete at tail if last index supplied", () => {
-    list.deleteAt(list.length() - 1);
+    const deletedValue = list.deleteAt(list.length() - 1);
     expect(list.length()).toEqual(listData.length - 1);
 
     const tailValue = list.get(list.length() - 1);
 
     expect(tailValue).toEqual(listData[listData.length - 2]);
+    expect(deletedValue).toEqual(listData[listData.length - 1]);
   });
 });
