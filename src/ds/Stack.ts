@@ -16,6 +16,10 @@ class Stack<T> {
   size(): number {
     return this._list.length();
   }
+
+  peek(): T | null {
+    return this._list.get(0);
+  }
 }
 
 export default Stack;
