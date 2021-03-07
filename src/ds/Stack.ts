@@ -20,6 +20,10 @@ class Stack<T> {
   peek(): T | null {
     return this._list.get(0);
   }
+
+  isEmpty(): boolean {
+    return this._list.length() === 0;
+  }
 }
 
 export default Stack;
