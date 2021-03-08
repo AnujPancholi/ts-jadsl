@@ -24,6 +24,11 @@ class Stack<T> {
   isEmpty(): boolean {
     return this._list.length() === 0;
   }
+
+  push(value: T): Stack<T> {
+    this._list.insertAt(0, value);
+    return this;
+  }
 }
 
 export default Stack;
