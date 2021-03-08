@@ -29,6 +29,10 @@ class Stack<T> {
     this._list.insertAt(0, value);
     return this;
   }
+
+  pop(): T | null {
+    return this._list.length() > 0 ? this._list.deleteAt(0) : null;
+  }
 }
 
 export default Stack;

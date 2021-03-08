@@ -48,3 +48,26 @@ describe("#Stack - push", () => {
     expect(freshStack.peek()).toBe(4);
   });
 });
+
+describe("#Stack - pop", () => {
+  test("return null with no change if pop called on empty stack", () => {
+    const freshStack = new Stack<number>();
+
+    const poppedValue = freshStack.pop();
+
+    expect(poppedValue).toBeNull();
+    expect(freshStack.size()).toBe(0);
+  });
+
+  test("return popped value if pop called on non-empty stack", () => {
+    const listData = [4, 5, 3, 6];
+    const freshStack = new Stack<number>(listData);
+
+    const expectedPoppedValue = freshStack.peek();
+    const poppedValue = freshStack.pop();
+
+    expect(freshStack.size()).toBe(listData.length - 1);
+    expect(poppedValue).toBe(expectedPoppedValue);
+    expect(freshStack.peek()).toBe(listData[1]);
+  });
+});
