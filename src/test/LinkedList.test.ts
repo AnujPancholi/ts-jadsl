@@ -235,3 +235,30 @@ describe("#LinkedList - insertAtHead", () => {
     expect(insertionResult === freshList).toBe(true);
   });
 });
+
+describe("#LinkedList - insertAtTail", () => {
+  test("should insert head in case of empty list", () => {
+    const freshList = new LinkedList<number>();
+
+    const insertionResult = freshList.insertAtTail(4);
+
+    expect(freshList.length()).toBe(1);
+
+    const headNode = freshList.getHeadNode();
+
+    expect(headNode ? headNode.value : null).toBe(4);
+    expect(headNode ? headNode.next : null).toBeNull();
+    expect(insertionResult === freshList).toBe(true);
+  });
+
+  test("should insert at tail in case of non-empty list", () => {
+    const listData = [-1, 0, 8, 45, 22];
+    const freshList = new LinkedList(listData);
+
+    const insertionResult = freshList.insertAtTail(55);
+
+    expect(freshList.length()).toBe(listData.length + 1);
+    expect(freshList.get(freshList.length() - 1)).toBe(55);
+    expect(insertionResult === freshList).toBe(true);
+  });
+});
