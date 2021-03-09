@@ -95,7 +95,7 @@ class LinkedList<T> {
           walkerNode = walkerNode.next;
           ++i;
         }
-        const nodeToDelete = walkerNode?.next || null;
+        const nodeToDelete = walkerNode ? walkerNode.next : null;
         if (nodeToDelete && walkerNode) {
           deletedVal = nodeToDelete.value;
           walkerNode.next = nodeToDelete.next;

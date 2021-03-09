@@ -149,6 +149,7 @@ describe("#LinkedList - deleteAt", () => {
 
     expect(emptyList.getHeadNode()).toBeNull();
     expect(deletedValue).toBeNull();
+    expect(emptyList.length()).toBe(0);
   });
 
   test("make no change if index invalid", () => {
@@ -213,6 +214,16 @@ describe("#LinkedList - deleteAt", () => {
     expect(tailValue).toEqual(listData[listData.length - 2]);
     expect(deletedValue).toEqual(listData[listData.length - 1]);
   });
+
+  test("empty list if last remaining element deleted", () => {
+    const singletonList = new LinkedList<number>([2]);
+
+    const deletedValue = singletonList.deleteAt(0);
+
+    expect(singletonList.length()).toBe(0);
+    expect(singletonList.getHeadNode()).toBeNull();
+    expect(deletedValue).toBe(2);
+  });
 });
 
 describe("#LinkedList - insertAtHead", () => {
@@ -253,7 +264,7 @@ describe("#LinkedList - insertAtTail", () => {
 
   test("should insert at tail in case of non-empty list", () => {
     const listData = [-1, 0, 8, 45, 22];
-    const freshList = new LinkedList(listData);
+    const freshList = new LinkedList<number>(listData);
 
     const insertionResult = freshList.insertAtTail(55);
 
