@@ -58,10 +58,10 @@ class LinkedList<T> {
         }
       } else {
         let walker: ListNode<T> | null = this._head;
-        for (let i = 0; i < index - 1; ++i) {
-          walker = walker?.next || null;
+        for (let i = 0; i < index - 1 && walker !== null; ++i) {
+          walker = walker.next;
         }
-        freshNode.next = walker?.next || null;
+        freshNode.next = walker ? walker.next : null;
         if (walker === this._tail) {
           this._tail = freshNode;
         }
