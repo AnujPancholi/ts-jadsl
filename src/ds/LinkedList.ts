@@ -39,8 +39,8 @@ class LinkedList<T> {
       return null;
     }
     let walkerNode: ListNode<T> | null = this._head;
-    for (let i = 0; i < index; ++i) {
-      walkerNode = walkerNode?.next || null;
+    for (let i = 0; i < index && walkerNode !== null; ++i) {
+      walkerNode = walkerNode.next;
     }
 
     return walkerNode?.value ?? null;
