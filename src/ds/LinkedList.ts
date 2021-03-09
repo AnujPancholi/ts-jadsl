@@ -1,9 +1,9 @@
 import ListNode from "./ListNode";
 
 class LinkedList<T> {
-  private _head: ListNode<T> | null;
-  private _tail: ListNode<T> | null;
-  private _length: number;
+  protected _head: ListNode<T> | null;
+  protected _tail: ListNode<T> | null;
+  protected _length: number;
 
   constructor(initArray: T[]);
   constructor();
@@ -128,6 +128,8 @@ class LinkedList<T> {
       this._tail.next = freshNode;
       this._tail = freshNode;
     }
+
+    ++this._length;
 
     return this;
   }
