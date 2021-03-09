@@ -1,37 +1,25 @@
 import LinkedList from "./LinkedList";
 
-class Stack<T> {
-  private _list: LinkedList<T>;
-
-  constructor();
-  constructor(initArray: T[]);
-  constructor(initArray?: T[]) {
-    if (initArray) {
-      this._list = new LinkedList<T>(initArray);
-    } else {
-      this._list = new LinkedList<T>();
-    }
-  }
-
+class Stack<T> extends LinkedList<T> {
   size(): number {
-    return this._list.length();
+    return this._length;
   }
 
   peek(): T | null {
-    return this._list.get(0);
+    return this._head !== null ? this._head.value : null;
   }
 
   isEmpty(): boolean {
-    return this._list.length() === 0;
+    return this._length === 0;
   }
 
   push(value: T): Stack<T> {
-    this._list.insertAt(0, value);
+    this.insertAt(0, value);
     return this;
   }
 
   pop(): T | null {
-    return this._list.length() > 0 ? this._list.deleteAt(0) : null;
+    return this.deleteAt(0);
   }
 }
 
