@@ -108,6 +108,14 @@ class LinkedList<T> {
     return deletedVal;
   }
 
+  insertAtHead(value: T): LinkedList<T> {
+    const freshNode = new ListNode<T>(value);
+    freshNode.next = this._head;
+    this._head = freshNode;
+    ++this._length;
+    return this;
+  }
+
   toArray(): T[] {
     const arr: T[] = [];
     let walker: ListNode<T> | null = this._head;

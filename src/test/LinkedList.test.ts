@@ -214,3 +214,24 @@ describe("#LinkedList - deleteAt", () => {
     expect(deletedValue).toEqual(listData[listData.length - 1]);
   });
 });
+
+describe("#LinkedList - insertAtHead", () => {
+  test("insert in empty list", () => {
+    const freshList = new LinkedList<number>();
+    const insertionResult = freshList.insertAtHead(6);
+
+    expect(freshList.length()).toBe(1);
+    expect(freshList.get(0)).toBe(6);
+    expect(insertionResult === freshList).toBe(true);
+  });
+
+  test("insert in non-empty list", () => {
+    const listData = [5, 0, -56, 4, 3];
+    const freshList = new LinkedList<number>(listData);
+    const insertionResult = freshList.insertAtHead(6);
+
+    expect(freshList.length()).toBe(listData.length + 1);
+    expect(freshList.get(0)).toBe(6);
+    expect(insertionResult === freshList).toBe(true);
+  });
+});
