@@ -78,11 +78,15 @@ class LinkedList<T> {
     let deletedVal: T | null = null;
     if (index >= 0 && index < this._length) {
       if (index === 0) {
-        const nodeToDelete = this._head;
-        this._head = this._head?.next ?? null;
-        if (nodeToDelete) {
+        let nodeToDelete: ListNode<T> | null;
+        if (this._head !== null) {
+          nodeToDelete = this._head;
           deletedVal = nodeToDelete.value;
+          this._head = this._head.next;
           nodeToDelete.next = null;
+          if (this._head === null) {
+            this._tail = null;
+          }
         }
       } else {
         let i = 0,
