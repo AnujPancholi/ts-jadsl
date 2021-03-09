@@ -16,6 +16,24 @@ describe("#Stack - constructor", () => {
   });
 });
 
+describe("#Stack - peek", () => {
+  test("should return null in empty stack", () => {
+    const freshStack = new Stack<number>();
+
+    expect(freshStack.peek()).toBe(null);
+  });
+
+  test("should return head value in non-empty stack without changing stack", () => {
+    const stackData = [8, 0, -3, 4, 5];
+    const freshStack = new Stack<number>(stackData);
+
+    const peekValue = freshStack.peek();
+
+    expect(freshStack.size()).toBe(stackData.length);
+    expect(peekValue).toBe(stackData[0]);
+  });
+});
+
 describe("#Stack - isEmpty", () => {
   test("returns true for empty stack", () => {
     const freshStack = new Stack<number>();
