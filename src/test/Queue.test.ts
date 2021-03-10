@@ -16,3 +16,20 @@ describe("#Queue - constructor", () => {
     expect(freshQueue.getFront()).toBe(qData[0]);
   });
 });
+
+describe("#Queue - enqueue", () => {
+  test("add to queue", () => {
+    const freshQueue = new Queue<number>();
+
+    freshQueue.enqueue(4);
+
+    expect(freshQueue.length()).toBe(1);
+    expect(freshQueue.getFront()).toBe(4);
+
+    freshQueue.enqueue(5);
+    freshQueue.enqueue(6);
+
+    expect(freshQueue.length()).toBe(3);
+    expect(freshQueue.getFront()).toBe(4);
+  });
+});
