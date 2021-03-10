@@ -6,6 +6,10 @@ class Queue<T> extends LinkedList<T> {
     return this;
   }
 
+  dequeue(): T | null {
+    return this.deleteAt(0);
+  }
+
   getFront(): T | null {
     const headRef = this.getHeadNode();
     return headRef !== null ? headRef.value : null;

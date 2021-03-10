@@ -33,3 +33,26 @@ describe("#Queue - enqueue", () => {
     expect(freshQueue.getFront()).toBe(4);
   });
 });
+
+describe("#Queue - dequeue", () => {
+  test("remove from queue", () => {
+    const queueData = [3, -8, 0, 9, 87, 5];
+    const freshQueue = new Queue<number>(queueData);
+
+    const poppedValue1 = freshQueue.dequeue();
+    expect(poppedValue1).toBe(queueData[0]);
+    expect(freshQueue.length()).toBe(queueData.length - 1);
+
+    freshQueue.dequeue();
+    freshQueue.dequeue();
+
+    expect(freshQueue.length()).toBe(queueData.length - 3);
+    expect(freshQueue.getFront()).toBe(queueData[3]);
+
+    while (freshQueue.length() > 0) {
+      freshQueue.dequeue();
+    }
+
+    expect(freshQueue.getFront()).toBeNull();
+  });
+});
