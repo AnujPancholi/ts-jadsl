@@ -49,7 +49,7 @@ describe("#Queue - dequeue", () => {
     expect(freshQueue.length()).toBe(queueData.length - 3);
     expect(freshQueue.getFront()).toBe(queueData[3]);
 
-    while (freshQueue.length() > 0) {
+    while (!freshQueue.isEmpty()) {
       freshQueue.dequeue();
     }
 

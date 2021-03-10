@@ -14,6 +14,10 @@ class Queue<T> extends LinkedList<T> {
     const headRef = this.getHeadNode();
     return headRef !== null ? headRef.value : null;
   }
+
+  isEmpty(): boolean {
+    return this._length === 0;
+  }
 }
 
 export default Queue;
