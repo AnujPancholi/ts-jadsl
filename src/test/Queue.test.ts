@@ -54,5 +54,8 @@ describe("#Queue - dequeue", () => {
     }
 
     expect(freshQueue.getFront()).toBeNull();
+
+    const dequeueResult = freshQueue.dequeue();
+    expect(dequeueResult).toBeNull();
   });
 });
