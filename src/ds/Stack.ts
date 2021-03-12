@@ -1,8 +1,24 @@
-import LinkedList from "./LinkedList";
+import ListNode from "./ListNode";
 
-class Stack<T> extends LinkedList<T> {
+class Stack<T> {
+  private _size: number;
+  private _head: ListNode<T> | null;
+
+  constructor();
+  constructor(initArray: T[]);
+  constructor(initArray?: T[]) {
+    this._size = 0;
+    this._head = null;
+
+    if (initArray) {
+      for (let i = initArray.length - 1; i >= 0; --i) {
+        this.push(initArray[i]);
+      }
+    }
+  }
+
   size(): number {
-    return this._length;
+    return this._size;
   }
 
   peek(): T | null {
@@ -10,16 +26,28 @@ class Stack<T> extends LinkedList<T> {
   }
 
   isEmpty(): boolean {
-    return this._length === 0;
+    return this._size === 0;
   }
 
   push(value: T): Stack<T> {
-    this.insertAt(0, value);
+    const freshNode = new ListNode<T>(value);
+    freshNode.next = this._head;
+    this._head = freshNode;
+    ++this._size;
     return this;
   }
 
   pop(): T | null {
-    return this.deleteAt(0);
+    let poppedValue: T | null = null;
+    if (this._head !== null) {
+      const poppedNode = this._head;
+      this._head = this._head.next;
+      poppedNode.next = null;
+      poppedValue = poppedNode.value;
+      --this._size;
+    }
+
+    return poppedValue;
   }
 }
 
