@@ -1,5 +1,4 @@
 import ListNode from "./ListNode";
-import LinkedList from "./LinkedList";
 
 class Queue<T> {
   private _length: number;
