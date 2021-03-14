@@ -5,5 +5,6 @@ describe("#Heap - constructor", () => {
     const freshHeap = new Heap<number>((a, b) => a - b);
 
     expect(freshHeap.peek()).toBeNull();
+    expect(freshHeap.size()).toBe(0);
   });
 });

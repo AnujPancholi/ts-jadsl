@@ -12,6 +12,10 @@ class Heap<T> {
   peek(): T | null {
     return this._array.length > 0 ? this._array[0] : null;
   }
+
+  size(): number {
+    return this._array.length;
+  }
 }
 
 export default Heap;
