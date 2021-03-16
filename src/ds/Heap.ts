@@ -31,6 +31,36 @@ class Heap<T> {
     }
   }
 
+  private _heapifyDown(): void {
+    let currIndex = 0;
+
+    while (this._getLeftChildIndex(currIndex) < this._array.length) {
+      const leftChildIndex = this._getLeftChildIndex(currIndex);
+      const rightChildIndex = this._getRightChildIndex(currIndex);
+      const candidateIndex =
+        rightChildIndex < this._array.length &&
+        this._comparatorFunction(
+          this._array[leftChildIndex],
+          this._array[rightChildIndex]
+        ) > 0
+          ? rightChildIndex
+          : leftChildIndex;
+      if (
+        this._comparatorFunction(
+          this._array[currIndex],
+          this._array[candidateIndex]
+        ) > 0
+      ) {
+        const temp = this._array[candidateIndex];
+        this._array[candidateIndex] = this._array[currIndex];
+        this._array[currIndex] = temp;
+        currIndex = candidateIndex;
+      } else {
+        break;
+      }
+    }
+  }
+
   constructor(
     comparatorFunction: (firstElement: T, secondElement: T) => number
   ) {
@@ -42,6 +72,18 @@ class Heap<T> {
     this._array.push(value);
     this._heapifyUp();
     return this;
+  }
+
+  pop(): T | null {
+    const poppedValue = this._array[0];
+    const tailValue = this._array.pop();
+    if (!tailValue) {
+      return null;
+    } else {
+      this._array[0] = tailValue;
+      this._heapifyDown();
+    }
+    return poppedValue;
   }
 
   peek(): T | null {

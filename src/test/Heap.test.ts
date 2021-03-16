@@ -27,4 +27,20 @@ describe("#Heap - insert in minheap of numbers", () => {
     expect(freshHeap.size()).toBe(heapData.length);
     expect(freshHeap.peek()).toBe(sortedHeapData[0]);
   });
+
+  test("pop from minheap", () => {
+    const freshHeap = new Heap<number>((a, b) => a - b);
+    const heapData = [5, 6, 3, 7, 2, 0, -3];
+    const sortedHeapData = [...heapData].sort((a, b) => a - b);
+    for (let i = 0; i < heapData.length; ++i) {
+      freshHeap.insert(heapData[i]);
+    }
+    let i = 0;
+    while (i < freshHeap.size() - 1) {
+      const poppedValue = freshHeap.pop();
+      expect(poppedValue).toBe(sortedHeapData[i]);
+      expect(freshHeap.peek()).toBe(sortedHeapData[i + 1]);
+      ++i;
+    }
+  });
 });
