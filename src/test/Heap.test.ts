@@ -36,7 +36,7 @@ describe("#Heap - insert in minheap of numbers", () => {
       freshHeap.insert(heapData[i]);
     }
     let i = 0;
-    while (i < freshHeap.size() - 1) {
+    while (freshHeap.size() > 1) {
       const poppedValue = freshHeap.pop();
       expect(poppedValue).toBe(sortedHeapData[i]);
       expect(freshHeap.peek()).toBe(sortedHeapData[i + 1]);
