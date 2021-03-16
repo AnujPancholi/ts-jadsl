@@ -27,7 +27,9 @@ describe("#Heap - insert in minheap of numbers", () => {
     expect(freshHeap.size()).toBe(heapData.length);
     expect(freshHeap.peek()).toBe(sortedHeapData[0]);
   });
+});
 
+describe("#Heap - pop", () => {
   test("pop from minheap", () => {
     const freshHeap = new Heap<number>((a, b) => a - b);
     const heapData = [5, 6, 3, 7, 2, 0, -3];
