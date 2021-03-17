@@ -44,5 +44,6 @@ describe("#Heap - pop", () => {
       expect(freshHeap.peek()).toBe(sortedHeapData[i + 1]);
       ++i;
     }
+    expect(freshHeap.peek()).toEqual(sortedHeapData[i]);
   });
 });
