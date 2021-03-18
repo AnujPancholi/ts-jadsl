@@ -9,8 +9,8 @@ describe("#Heap - constructor", () => {
   });
 });
 
-describe("#Heap - insert in minheap of numbers", () => {
-  test("should insert value", () => {
+describe("#Heap - insert", () => {
+  test("should insert value in minheap", () => {
     const freshHeap = new Heap<number>((a, b) => a - b);
     const heapData = [5, 6, 3, 7, 2, 0, -3];
     const sortedHeapData = [...heapData].sort((a, b) => a - b);
@@ -21,6 +21,19 @@ describe("#Heap - insert in minheap of numbers", () => {
     expect(freshHeap.size()).toBe(1);
 
     for (let i = 1; i < heapData.length; ++i) {
+      freshHeap.insert(heapData[i]);
+    }
+
+    expect(freshHeap.size()).toBe(heapData.length);
+    expect(freshHeap.peek()).toBe(sortedHeapData[0]);
+  });
+
+  test("should insert in maxheap", () => {
+    const freshHeap = new Heap<number>((a, b) => b - a);
+    const heapData = [5, 6, 3, 7, 2, 0, -3];
+    const sortedHeapData = [...heapData].sort((a, b) => b - a);
+
+    for (let i = 0; i < heapData.length; ++i) {
       freshHeap.insert(heapData[i]);
     }
 
