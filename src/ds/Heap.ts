@@ -77,10 +77,10 @@ class Heap<T> {
   pop(): T | null {
     const poppedValue = this._array[0];
     const tailValue = this._array.pop();
-    if (!tailValue) {
+    if (tailValue === undefined) {
       return null;
     } else {
-      this._array[0] = tailValue;
+      if (this._array.length > 0) this._array[0] = tailValue;
       this._heapifyDown();
     }
     return poppedValue;

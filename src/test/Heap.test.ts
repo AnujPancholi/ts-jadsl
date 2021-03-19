@@ -38,7 +38,12 @@ describe("#Heap - insert", () => {
     }
 
     expect(freshHeap.size()).toBe(heapData.length);
-    expect(freshHeap.peek()).toBe(sortedHeapData[0]);
+    let i = 0;
+    while (freshHeap.size() > 0) {
+      const poppedVal = freshHeap.pop();
+      expect(poppedVal).toEqual(sortedHeapData[i]);
+      ++i;
+    }
   });
 });
 
