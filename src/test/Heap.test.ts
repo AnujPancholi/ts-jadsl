@@ -45,6 +45,40 @@ describe("#Heap - insert", () => {
       ++i;
     }
   });
+
+  test("should insert in maxheap of objects", () => {
+    interface valobj {
+      val: number;
+    }
+    const freshHeap = new Heap<valobj>((a, b) => b.val - a.val);
+    const heapData = [
+      { val: 5 },
+      { val: 6 },
+      { val: 3 },
+      { val: 7 },
+      { val: 2 },
+      { val: 0 },
+      { val: -3 },
+    ];
+    const sortedHeapData = [...heapData].sort((a, b) => b.val - a.val);
+
+    for (let i = 0; i < heapData.length; ++i) {
+      freshHeap.insert(heapData[i]);
+    }
+
+    expect(freshHeap.size()).toBe(heapData.length);
+    let i = 0;
+    while (freshHeap.size() > 0) {
+      const poppedVal = freshHeap.pop();
+      expect(poppedVal).toBeDefined();
+
+      expect(poppedVal !== null ? poppedVal.val : null).toBeDefined();
+      expect(poppedVal !== null ? poppedVal.val : null).toEqual(
+        sortedHeapData[i].val
+      );
+      ++i;
+    }
+  });
 });
 
 describe("#Heap - pop", () => {
