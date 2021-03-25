@@ -9,3 +9,11 @@ describe("#BinaryTreeNode - constructor", () => {
     expect(freshNode.right).toBeNull();
   });
 });
+
+describe("#BinaryTreeNode - isLeafNode", () => {
+  test("should return true for leaf node", () => {
+    const freshNode = new BinaryTreeNode<number>(5);
+
+    expect(freshNode.isLeafNode()).toBe(true);
+  });
+});

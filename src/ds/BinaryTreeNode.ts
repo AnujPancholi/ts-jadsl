@@ -8,6 +8,10 @@ class BinaryTreeNode<T> {
     this.left = null;
     this.right = null;
   }
+
+  isLeafNode(): boolean {
+    return this.left === null && this.right === null;
+  }
 }
 
 export default BinaryTreeNode;
