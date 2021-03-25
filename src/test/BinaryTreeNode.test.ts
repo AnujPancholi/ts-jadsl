@@ -16,4 +16,11 @@ describe("#BinaryTreeNode - isLeafNode", () => {
 
     expect(freshNode.isLeafNode()).toBe(true);
   });
+
+  test("should return false for non-leaf node", () => {
+    const rootNode = new BinaryTreeNode<number>(5);
+    rootNode.left = new BinaryTreeNode<number>(4);
+
+    expect(rootNode.isLeafNode()).toBe(false);
+  });
 });
