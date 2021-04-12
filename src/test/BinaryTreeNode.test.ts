@@ -24,3 +24,20 @@ describe("#BinaryTreeNode - isLeafNode", () => {
     expect(rootNode.isLeafNode()).toBe(false);
   });
 });
+
+describe("#BinaryTreeNode - height", () => {
+  test("should return 1 for leaf node", () => {
+    const freshNode = new BinaryTreeNode<number>(5);
+
+    expect(freshNode.height()).toBe(1);
+  });
+
+  test("should return height of subtree from node", () => {
+    const freshNode = new BinaryTreeNode<number>(5);
+    freshNode.left = new BinaryTreeNode<number>(3);
+    freshNode.right = new BinaryTreeNode<number>(3);
+    freshNode.left.left = new BinaryTreeNode<number>(2);
+
+    expect(freshNode.height()).toBe(3);
+  });
+});

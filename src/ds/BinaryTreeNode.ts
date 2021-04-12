@@ -12,6 +12,16 @@ class BinaryTreeNode<T> {
   isLeafNode(): boolean {
     return this.left === null && this.right === null;
   }
+
+  height(): number {
+    return (
+      1 +
+      Math.max(
+        this.left ? this.left.height() : 0,
+        this.right ? this.right.height() : 0
+      )
+    );
+  }
 }
 
 export default BinaryTreeNode;
