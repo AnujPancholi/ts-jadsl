@@ -1,6 +1,6 @@
 ## JADSL - Just Another Data Structures Library
 
-### WIP
+### _(WIP)_
 
 ### Data Structures:
 
