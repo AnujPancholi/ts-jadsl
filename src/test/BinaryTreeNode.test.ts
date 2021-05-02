@@ -48,15 +48,16 @@ describe("#BinaryTreeNode - traversal functions", () => {
   rootNode.right = new BinaryTreeNode<number>(3);
   rootNode.left.left = new BinaryTreeNode<number>(4);
   rootNode.left.right = new BinaryTreeNode<number>(5);
+
   test("should return inorder representation", () => {
     const expectdTraversal = [4, 2, 5, 1, 3];
-
     const inorderTrav = rootNode.getInorderTraversal();
-
-    console.log(inorderTrav);
-
     expect(inorderTrav).toEqual(expectdTraversal);
   });
-});
 
-// [1,2,4,5,3]
+  test("should return preorder representation", () => {
+    const expectdTraversal = [1, 2, 4, 5, 3];
+    const preorderTrav = rootNode.getPreorderTraversal();
+    expect(preorderTrav).toEqual(expectdTraversal);
+  });
+});

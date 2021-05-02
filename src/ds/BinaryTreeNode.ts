@@ -42,6 +42,26 @@ class BinaryTreeNode<T> {
 
     return inorderTrav;
   }
+
+  getPreorderTraversal(): Array<T> {
+    const preorderTrav: Array<T> = [];
+
+    const populatePreorderTraversalRecursive = function (
+      root: BinaryTreeNode<T> | null,
+      trav: Array<T>
+    ): void {
+      if (root === null) {
+        return;
+      }
+
+      trav.push(root.value);
+      populatePreorderTraversalRecursive(root.left, trav);
+      populatePreorderTraversalRecursive(root.right, trav);
+    };
+
+    populatePreorderTraversalRecursive(this, preorderTrav);
+    return preorderTrav;
+  }
 }
 
 export default BinaryTreeNode;
