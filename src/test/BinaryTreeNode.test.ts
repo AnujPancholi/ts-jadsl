@@ -42,14 +42,13 @@ describe("#BinaryTreeNode - height", () => {
   });
 });
 
-describe("#BinaryTreeNode - getInOrderTraversal", () => {
+describe("#BinaryTreeNode - traversal functions", () => {
+  const rootNode = new BinaryTreeNode<number>(1);
+  rootNode.left = new BinaryTreeNode<number>(2);
+  rootNode.right = new BinaryTreeNode<number>(3);
+  rootNode.left.left = new BinaryTreeNode<number>(4);
+  rootNode.left.right = new BinaryTreeNode<number>(5);
   test("should return inorder representation", () => {
-    const rootNode = new BinaryTreeNode<number>(1);
-    rootNode.left = new BinaryTreeNode<number>(2);
-    rootNode.right = new BinaryTreeNode<number>(3);
-    rootNode.left.left = new BinaryTreeNode<number>(4);
-    rootNode.left.right = new BinaryTreeNode<number>(5);
-
     const expectdTraversal = [4, 2, 5, 1, 3];
 
     const inorderTrav = rootNode.getInorderTraversal();
@@ -59,3 +58,5 @@ describe("#BinaryTreeNode - getInOrderTraversal", () => {
     expect(inorderTrav).toEqual(expectdTraversal);
   });
 });
+
+// [1,2,4,5,3]
