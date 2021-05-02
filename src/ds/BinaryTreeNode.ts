@@ -22,6 +22,26 @@ class BinaryTreeNode<T> {
       )
     );
   }
+
+  getInorderTraversal(): Array<T> {
+    const inorderTrav: Array<T> = [];
+
+    const populateInorderTraversalRecursive = function (
+      node: BinaryTreeNode<T> | null,
+      trav: Array<T>
+    ): void {
+      if (node === null) {
+        return;
+      }
+      populateInorderTraversalRecursive(node.left, trav);
+      trav.push(node.value);
+      populateInorderTraversalRecursive(node.right, trav);
+    };
+
+    populateInorderTraversalRecursive(this, inorderTrav);
+
+    return inorderTrav;
+  }
 }
 
 export default BinaryTreeNode;

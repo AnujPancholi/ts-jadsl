@@ -41,3 +41,21 @@ describe("#BinaryTreeNode - height", () => {
     expect(freshNode.height()).toBe(3);
   });
 });
+
+describe("#BinaryTreeNode - getInOrderTraversal", () => {
+  test("should return inorder representation", () => {
+    const rootNode = new BinaryTreeNode<number>(1);
+    rootNode.left = new BinaryTreeNode<number>(2);
+    rootNode.right = new BinaryTreeNode<number>(3);
+    rootNode.left.left = new BinaryTreeNode<number>(4);
+    rootNode.left.right = new BinaryTreeNode<number>(5);
+
+    const expectdTraversal = [4, 2, 5, 1, 3];
+
+    const inorderTrav = rootNode.getInorderTraversal();
+
+    console.log(inorderTrav);
+
+    expect(inorderTrav).toEqual(expectdTraversal);
+  });
+});
