@@ -60,4 +60,10 @@ describe("#BinaryTreeNode - traversal functions", () => {
     const preorderTrav = rootNode.getPreorderTraversal();
     expect(preorderTrav).toEqual(expectdTraversal);
   });
+
+  test("should return postorder representation", () => {
+    const expectedTraversal = [4, 5, 2, 3, 1];
+    const postorderTrav = rootNode.getPostorderTraversal();
+    expect(postorderTrav).toEqual(expectedTraversal);
+  });
 });
