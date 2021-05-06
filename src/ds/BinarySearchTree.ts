@@ -28,7 +28,7 @@ class BinarySearchTree<T> extends BinaryTree<T> {
   }
 
   insert(value: T): BinarySearchTree<T> {
-    this._insertValue(this.root, value);
+    this.root = this._insertValue(this.root, value);
     return this;
   }
 }

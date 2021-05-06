@@ -12,7 +12,7 @@ abstract class BinaryTree<T> {
   }
 
   getPreorderTraversal(): Array<T> {
-    return this.root === null ? [] : this.root.getInorderTraversal();
+    return this.root === null ? [] : this.root.getPreorderTraversal();
   }
 
   getPostorderTraversal(): Array<T> {
