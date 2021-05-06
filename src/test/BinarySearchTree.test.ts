@@ -1,4 +1,5 @@
 import BinarySearchTree from "../ds/BinarySearchTree";
+import BinaryTreeNode from "../ds/BinaryTreeNode";
 
 describe("#BinarySearchTree - constructor", () => {
   test("should return empty tree", () => {
@@ -29,5 +30,15 @@ describe("#BinarySearchTree - insert", () => {
     }
 
     expect(numTree.getPreorderTraversal()).toEqual(preorderTrav);
+  });
+
+  test("should delete by value from BST", () => {
+    const elements = [4, 2, 7, 1, 3, 5];
+    const preorderTravPostDelete = [4, 2, 1, 3, 5];
+    const numTree = new BinarySearchTree<number>((n) => n, elements);
+
+    numTree.delete(7);
+
+    expect(numTree.getPreorderTraversal()).toEqual(preorderTravPostDelete);
   });
 });
