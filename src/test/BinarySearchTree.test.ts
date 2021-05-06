@@ -5,6 +5,7 @@ describe("#BinarySearchTree - constructor", () => {
     const numTree = new BinarySearchTree<number>((n: number) => n);
 
     expect(numTree.root).toBeNull();
+    expect(numTree.getPreorderTraversal()).toEqual([]);
   });
 });
 
