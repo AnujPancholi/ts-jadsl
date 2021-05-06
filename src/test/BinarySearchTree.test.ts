@@ -7,6 +7,15 @@ describe("#BinarySearchTree - constructor", () => {
     expect(numTree.root).toBeNull();
     expect(numTree.getPreorderTraversal()).toEqual([]);
   });
+
+  test("should construct bst from given array", () => {
+    const elements = [4, 2, 7, 1, 3, 5];
+    const preorderTrav = [4, 2, 1, 3, 7, 5];
+
+    const numTree = new BinarySearchTree<number>((n) => n, elements);
+
+    expect(numTree.getPreorderTraversal()).toEqual(preorderTrav);
+  });
 });
 
 describe("#BinarySearchTree - insert", () => {

@@ -4,10 +4,17 @@ import BinaryTreeNode from "./BinaryTreeNode";
 class BinarySearchTree<T> extends BinaryTree<T> {
   private _getKey: (value: T) => number;
 
-  constructor(keyFunction: (value: T) => number) {
+  constructor(keyFunction: (value: T) => number);
+  constructor(keyFunction: (value: T) => number, initArray: Array<T>);
+  constructor(keyFunction: (value: T) => number, initArray?: Array<T>) {
     super();
-
     this._getKey = keyFunction;
+
+    if (initArray) {
+      for (const value of initArray) {
+        this.root = this._insertValue(this.root, value);
+      }
+    }
   }
 
   private _insertValue(
