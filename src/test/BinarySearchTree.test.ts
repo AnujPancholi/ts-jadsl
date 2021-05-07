@@ -60,3 +60,28 @@ describe("#BinarySearchTree - insert", () => {
     expect(numTree.getPreorderTraversal()).toEqual(preorderTravPostDelete);
   });
 });
+
+describe("#BinarySearchTree - search", () => {
+  test("should return null in case of empty tree", () => {
+    expect(new BinarySearchTree<number>((n) => n).search(3)).toBeNull();
+  });
+
+  test("should return null if value not present", () => {
+    const elements = [4, 2, 7, 1, 3, 5, 2.5];
+    const numTree = new BinarySearchTree<number>((n) => n, elements);
+
+    expect(numTree.search(56)).toBeNull();
+  });
+
+  test("should return node if value present", () => {
+    const elements = [4, 2, 7, 1, 3, 5, 2.5];
+    const numTree = new BinarySearchTree<number>((n) => n, elements);
+
+    const searchResult1 = numTree.search(7);
+    const searchResult2 = numTree.search(4);
+    const searchResult3 = numTree.search(2.5);
+    expect(searchResult1 ? searchResult1.value : null).toBe(7);
+    expect(searchResult2 ? searchResult2.value : null).toBe(4);
+    expect(searchResult3 ? searchResult3.value : null).toBe(2.5);
+  });
+});

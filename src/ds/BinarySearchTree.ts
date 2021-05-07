@@ -81,6 +81,23 @@ class BinarySearchTree<T> extends BinaryTree<T> {
     return rootNode;
   }
 
+  private _searchValue(
+    rootNode: BinaryTreeNode<T> | null,
+    value: T
+  ): BinaryTreeNode<T> | null {
+    if (rootNode === null) {
+      return null;
+    }
+
+    if (rootNode.value === value) {
+      return rootNode;
+    }
+
+    return this._getKey(value) <= this._getKey(rootNode.value)
+      ? this._searchValue(rootNode.left, value)
+      : this._searchValue(rootNode.right, value);
+  }
+
   insert(value: T): BinarySearchTree<T> {
     this.root = this._insertValue(this.root, value);
     return this;
@@ -89,6 +106,10 @@ class BinarySearchTree<T> extends BinaryTree<T> {
   delete(value: T): BinarySearchTree<T> {
     this.root = this._deleteValue(this.root, value);
     return this;
+  }
+
+  search(value: T): BinaryTreeNode<T> | null {
+    return this._searchValue(this.root, value);
   }
 }
 
