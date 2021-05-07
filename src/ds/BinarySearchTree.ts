@@ -71,7 +71,7 @@ class BinarySearchTree<T> extends BinaryTree<T> {
           : null;
         if (freshNode) {
           freshNode.left = rootNode.left;
-          freshNode.right = rootNode.right;
+          freshNode.right = this._deleteValue(rootNode.right, freshNode.value);
 
           return freshNode;
         }

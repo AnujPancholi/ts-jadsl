@@ -50,4 +50,13 @@ describe("#BinarySearchTree - insert", () => {
     numTree.delete(3);
     expect(numTree.getPreorderTraversal()).toEqual(preorderTravPostDelete);
   });
+
+  test("should delete node by value from BST with both children", () => {
+    const elements = [4, 2, 7, 1, 3, 5, 2.5, 3.5, 2.25];
+    const preorderTravPostDelete = [4, 2.25, 1, 3, 2.5, 3.5, 7, 5];
+    const numTree = new BinarySearchTree<number>((n) => n, elements);
+
+    numTree.delete(2);
+    expect(numTree.getPreorderTraversal()).toEqual(preorderTravPostDelete);
+  });
 });
