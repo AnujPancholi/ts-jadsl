@@ -9,7 +9,7 @@
 - Queue
 - Heap
 
---
+---
 
 ### Linked List:
 
@@ -41,10 +41,15 @@ Parameters:
 
 - `getHeadNode(): ListNode<T> | null` Returns the head node of the list if the user does not wish to use the list functions, and just wants a reference to the list node. Returns `null` is list is empty.
 
+---
+
 ### Stack:
 
 Constructor:
-`Stack<T>(initArray?: T[])`
+
+```
+Stack<T>(initArray?: T[])
+```
 
 Parameters:
 
@@ -62,11 +67,16 @@ Parameters:
 
 - `pop(): T | null` Pops and returns top value from stack. Returns `null` if stack empty.
 
+---
+
 ### Queue
 
 Single-ended queue.
 Constructor:
-`Queue<T>(initArray?: T[])`
+
+```
+Queue<T>(initArray?: T[])
+```
 
 Parameters:
 
@@ -84,11 +94,16 @@ Parameters:
 
 - `length(): number` Returns length of queue.
 
+---
+
 ### Heap
 
 Can also be considered implementation of a priority queue.
 Constructor:
-`Heap<T>(comparatorFunction: (firstElement: T, secondElement: T) => number)`
+
+```
+Heap<T>(comparatorFunction: (firstElement: T, secondElement: T) => number)
+```
 
 Parameters:
 
