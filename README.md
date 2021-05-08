@@ -119,4 +119,30 @@ Parameters:
 
 - `size(): number` Returns size of heap (number of elements)
 
+### <span id="BinaryTreeNode">BinaryTreeNode</span>
+
+Constructor
+
+```
+BinaryTreeNode<T>(value: T)
+```
+
+##### Properties:
+
+- `value: T` value of node
+- `left: BinaryTreeNode<T> | null` left of current node
+- `right: BinaryTreeNode<T> | null` right of current node
+
+##### Methods:
+
+- `isLeafNode(): boolean` Returns `true` is node is leaf node, `false` if otherwise.
+
+- `height(): number` Returns height of the subtree with current node as root.
+
+- `getInorderTraversal(): Array<T>` Returns array of elements in subtree in an inorder fasion.
+
+- `getPreorderTraversal(): Array<T>` Returns array of elements in subtree in a preorder fasion.
+
+- `getPostorderTraversal(): Array<T>` Returns array of elements in subtree in a postorder fasion.
+
 ---
