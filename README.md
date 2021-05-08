@@ -11,9 +11,12 @@
 
 ### Linked List:
 
+Constructor:
 `LinkedList(initArray?: T[])`
 
-- `initArray` (optional): Array of elements with which linked list will be initialized
+Parameters:
+
+- `initArray: T[]` (optional): Array of elements with which linked list will be initialized
 
 ##### Methods:
 
@@ -32,3 +35,26 @@
 - `toArray(): T[]` Returns an array of elements of the list, in order.
 
 - `getHeadNode(): ListNode<T> | null` Returns the head node of the list if the user does not wish to use the list functions, and just wants a reference to the list node. Returns `null` is list is empty.
+
+### Stack:
+
+Constructor:
+`constructor(initArray?: T[])`
+
+Parameters:
+
+- `initArray: T[]` (optional): Array of elements with which the stack will be initialized (insertion of each element performed in order)
+
+##### Methods:
+
+- `size(): number` Returns size of the stack (number of elements).
+
+- `peek(): T | null` Returns top element of stack. Returns `null` if stack empty.
+
+- `isEmpty(): boolean` Returns `true` if stack empty, `false` if otherwise.
+
+- `push(value: T): Stack<T>` Pushes `value` on top of stack, returns the `Stack` instance.
+
+- `pop(): T | null` Pops and returns top value from stack. Returns `null` if stack empty.
+
+---
