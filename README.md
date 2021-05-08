@@ -12,7 +12,7 @@
 
 ---
 
-### <span id="LinkedList">Linked List</span>:
+### <span id="LinkedList">Linked List:</span>:
 
 Constructor:
 
@@ -44,7 +44,7 @@ Parameters:
 
 ---
 
-### <span id="Stack">Stack</span>:
+### <span id="Stack">Stack:</span>:
 
 Constructor:
 
@@ -70,7 +70,7 @@ Parameters:
 
 ---
 
-### <span id="#Queue">Queue</span>
+### <span id="#Queue">Queue:</span>
 
 Single-ended queue.
 Constructor:
@@ -83,7 +83,7 @@ Parameters:
 
 - `initArray: T[]` (optional): Array of element from which the queue will be initialized (insertion of each element performed in order)
 
-##### Methods
+##### Methods:
 
 - `enqueue(value: T): Queue<T>` Adds `value` to rear of queue, returns the `Queue` instance.
 
@@ -97,7 +97,7 @@ Parameters:
 
 ---
 
-### <span id="Heap">Heap</span>
+### <span id="Heap">Heap:</span>
 
 Can also be considered implementation of a priority queue.
 Constructor:
@@ -110,7 +110,7 @@ Parameters:
 
 - `comparatorFunction: (firstElement: T, secondElement: T) => number` (mandatory): A comparator function to return a number. If number is greater than 0, bubble-up will be performed in the heapify operation.
 
-##### Methods
+##### Methods:
 
 - `insert(value: T): Heap<T>` Inserts `value` in the heap.
 
@@ -120,7 +120,7 @@ Parameters:
 
 - `size(): number` Returns size of heap (number of elements)
 
-### <span id="BinaryTreeNode">BinaryTreeNode</span>
+### <span id="BinaryTreeNode">BinaryTreeNode:</span>
 
 Constructor
 
