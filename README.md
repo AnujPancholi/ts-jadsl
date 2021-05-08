@@ -4,14 +4,14 @@
 
 ### Data Structures:
 
-- LinkedList
-- Stack
-- Queue
-- Heap
+- [LinkedList](#LinkedList)
+- [Stack](#Stack)
+- [Queue](#Queue)
+- [Heap](#Heap)
 
 ---
 
-### Linked List:
+### <span id="LinkedList">Linked List</span>:
 
 Constructor:
 
@@ -43,7 +43,7 @@ Parameters:
 
 ---
 
-### Stack:
+### <span id="Stack">Stack</span>:
 
 Constructor:
 
@@ -69,7 +69,7 @@ Parameters:
 
 ---
 
-### Queue
+### <span id="#Queue">Queue</span>
 
 Single-ended queue.
 Constructor:
@@ -96,7 +96,7 @@ Parameters:
 
 ---
 
-### Heap
+### <span id="Heap">Heap</span>
 
 Can also be considered implementation of a priority queue.
 Constructor:
