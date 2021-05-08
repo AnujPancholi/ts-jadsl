@@ -9,6 +9,7 @@
 - [Queue](#Queue)
 - [Heap](#Heap)
 - [BinaryTreeNode](#BinaryTreeNode)
+- [BinarySearchTree](#BinarySearchTree)
 
 ---
 
@@ -120,6 +121,8 @@ Parameters:
 
 - `size(): number` Returns size of heap (number of elements)
 
+---
+
 ### <span id="BinaryTreeNode">BinaryTreeNode:</span>
 
 Constructor
@@ -175,5 +178,7 @@ Parameters
 - `delete(value: T): BinarySearchTree<T>` Deletes node with `value` in BST, returns BST instance.
 
 - `search(value: T): BinaryTreeNode<T> | null` Returns tree node with `value` in BST, `null` if node not found.
+
+---
 
 ---
