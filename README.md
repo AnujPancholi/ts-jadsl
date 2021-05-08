@@ -128,6 +128,10 @@ Constructor
 BinaryTreeNode<T>(value: T)
 ```
 
+Parameters:
+
+- `value` (mandatory): Value for the binary tree node.
+
 ##### Properties:
 
 - `value: T` value of node
@@ -145,5 +149,31 @@ BinaryTreeNode<T>(value: T)
 - `getPreorderTraversal(): Array<T>` Returns array of elements in subtree in a preorder fasion.
 
 - `getPostorderTraversal(): Array<T>` Returns array of elements in subtree in a postorder fasion.
+
+### <span id="BinarySearchTree">BinarySearchTree:</span>
+
+Constructor
+
+```
+BinarySearchTree<T>(keyFunction: (value: T) => number, initArray?: Array<T>)
+```
+
+Parameters
+
+- `keyFunction: (value: T) => number` (mandatory): Function that takes `value` of tree node as a parameter to get the key value, on the basis of which BST inserts/search will be performed
+
+- `initArray: Array<T>` (optional): Array with which tree is initialized by inserting elements of array in order.
+
+##### Properties:
+
+- `root: BinaryTreeNode<T> | null` Root node of the binary tree
+
+##### Methods:
+
+- `insert(value: T): BinarySearchTree<T>` Inserts new node with `value` in BST, returns BST instance.
+
+- `delete(value: T): BinarySearchTree<T>` Deletes node with `value` in BST, returns BST instance.
+
+- `search(value: T): BinaryTreeNode<T> | null` Returns tree node with `value` in BST, `null` if node not found.
 
 ---
