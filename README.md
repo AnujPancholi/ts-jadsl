@@ -8,6 +8,7 @@
 - [Stack](#Stack)
 - [Queue](#Queue)
 - [Heap](#Heap)
+- [BinaryTreeNode](#BinaryTreeNode)
 
 ---
 
