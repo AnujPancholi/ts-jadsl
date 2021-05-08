@@ -79,4 +79,24 @@ Parameters:
 
 - `length(): number` Returns length of queue.
 
+### Heap
+
+Can also be considered implementation of a priority queue.
+Constructor:
+`Heap<T>(comparatorFunction: (firstElement: T, secondElement: T) => number)`
+
+Parameters:
+
+- `comparatorFunction: (firstElement: T, secondElement: T) => number` (mandatory): A comparator function to return a number. If number is greater than 0, bubble-up will be performed in the heapify operation.
+
+##### Methods
+
+- `insert(value: T): Heap<T>` Inserts `value` in the heap.
+
+- `pop(): T | null` Removes and returns value from top of heap. Returns `null` if heap empty.
+
+- `peek(): T | null` Returns value at top of heap.
+
+- `size(): number` Returns size of heap (number of elements)
+
 ---
