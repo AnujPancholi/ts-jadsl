@@ -9,10 +9,15 @@
 - Queue
 - Heap
 
+--
+
 ### Linked List:
 
 Constructor:
-`LinkedList<T>(initArray?: T[])`
+
+```
+LinkedList<T>(initArray?: T[])
+```
 
 Parameters:
 
