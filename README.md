@@ -153,6 +153,8 @@ Parameters:
 
 - `getPostorderTraversal(): Array<T>` Returns array of elements in subtree in a postorder fasion.
 
+---
+
 ### <span id="BinarySearchTree">BinarySearchTree:</span>
 
 Constructor
