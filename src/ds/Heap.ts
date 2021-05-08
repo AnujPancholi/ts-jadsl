@@ -63,9 +63,23 @@ class Heap<T> {
 
   constructor(
     comparatorFunction: (firstElement: T, secondElement: T) => number
+  );
+  constructor(
+    comparatorFunction: (firstElement: T, secondElement: T) => number,
+    initArray: Array<T>
+  );
+  constructor(
+    comparatorFunction: (firstElement: T, secondElement: T) => number,
+    initArray?: Array<T>
   ) {
     this._array = [];
     this._comparatorFunction = comparatorFunction;
+
+    if (initArray) {
+      for (const elem of initArray) {
+        this.insert(elem);
+      }
+    }
   }
 
   insert(value: T): Heap<T> {

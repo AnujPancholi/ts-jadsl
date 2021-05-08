@@ -7,6 +7,19 @@ describe("#Heap - constructor", () => {
     expect(freshHeap.peek()).toBeNull();
     expect(freshHeap.size()).toBe(0);
   });
+
+  test("should construct heap from array", () => {
+    const heapData = [5, 6, 3, 7, 2, 0, -3];
+    const sortedHeapData = [...heapData].sort((a, b) => a - b);
+
+    const freshMinHeap = new Heap<number>((a, b) => a - b, heapData);
+
+    let i = 0;
+    while (freshMinHeap.size() > 0) {
+      expect(freshMinHeap.pop()).toBe(sortedHeapData[i]);
+      ++i;
+    }
+  });
 });
 
 describe("#Heap - insert", () => {
