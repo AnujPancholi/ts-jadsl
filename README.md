@@ -104,12 +104,13 @@ Can also be considered implementation of a priority queue.
 Constructor:
 
 ```
-Heap<T>(comparatorFunction: (firstElement: T, secondElement: T) => number)
+Heap<T>(comparatorFunction: (firstElement: T, secondElement: T) => number, initArray?: Array<T>)
 ```
 
 Parameters:
 
 - `comparatorFunction: (firstElement: T, secondElement: T) => number` (mandatory): A comparator function to return a number. If number is greater than 0, bubble-up will be performed in the heapify operation.
+- `initArray: Array<T>` (optional): Array which will be heapified into initial heap.
 
 ##### Methods:
 
