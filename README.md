@@ -12,7 +12,7 @@
 ### Linked List:
 
 Constructor:
-`LinkedList(initArray?: T[])`
+`LinkedList<T>(initArray?: T[])`
 
 Parameters:
 
@@ -30,7 +30,7 @@ Parameters:
 
 - `get(index: number): T | null` Returns element at `index`. Returns `null` if index is out of bounds for the list.
 
-- `deleteAt(index: number): T | null`: Deletes element at `index`, returns the deleted element. Returns `null` if index is out of bounds and delete is not performed.
+- `deleteAt(index: number): T | null` Deletes element at `index`, returns the deleted element. Returns `null` if index is out of bounds and delete is not performed.
 
 - `toArray(): T[]` Returns an array of elements of the list, in order.
 
@@ -39,7 +39,7 @@ Parameters:
 ### Stack:
 
 Constructor:
-`constructor(initArray?: T[])`
+`Stack<T>(initArray?: T[])`
 
 Parameters:
 
@@ -56,5 +56,27 @@ Parameters:
 - `push(value: T): Stack<T>` Pushes `value` on top of stack, returns the `Stack` instance.
 
 - `pop(): T | null` Pops and returns top value from stack. Returns `null` if stack empty.
+
+### Queue
+
+Single-ended queue.
+Constructor:
+`Queue<T>(initArray?: T[])`
+
+Parameters:
+
+- `initArray: T[]` (optional): Array of element from which the queue will be initialized (insertion of each element performed in order)
+
+##### Methods
+
+- `enqueue(value: T): Queue<T>` Adds `value` to rear of queue, returns the `Queue` instance.
+
+- `dequeue(): T | null` Removes and returns element at front of queue. Returns `null` if queue empty.
+
+- `getFront(): T | null` Returns value in front of the queue. Returns `null` if queue empty.
+
+- `isEmpty(): boolean` Returns `true` if queue empty, `false` if otherwise.
+
+- `length(): number` Returns length of queue.
 
 ---
