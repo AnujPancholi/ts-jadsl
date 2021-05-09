@@ -144,4 +144,9 @@ describe("#Heap - pop", () => {
     }
     expect(freshHeap.peek()).toEqual(sortedHeapData[i]);
   });
+
+  test("should return null if heap empty", () => {
+    const freshHeap = new Heap<number>((a, b) => a - b);
+    expect(freshHeap.pop()).toBeNull();
+  });
 });
