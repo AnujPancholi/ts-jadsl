@@ -83,4 +83,12 @@ describe("#BinarySearchTree - search", () => {
     expect(searchResult2 ? searchResult2.value : null).toBe(4);
     expect(searchResult3 ? searchResult3.value : null).toBe(2.5);
   });
+
+  describe("#BinarySearchTree - getMin", () => {
+    test("should return null if tree empty", () => {
+      const numTree = new BinarySearchTree<number>((n) => n);
+
+      expect(numTree.getMin()).toBeNull();
+    });
+  });
 });

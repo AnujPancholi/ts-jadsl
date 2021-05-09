@@ -111,6 +111,11 @@ class BinarySearchTree<T> extends BinaryTree<T> {
   search(value: T): BinaryTreeNode<T> | null {
     return this._searchValue(this.root, value);
   }
+
+  getMin(): T | null {
+    const minNode = this._getMinNode(this.root);
+    return minNode === null ? null : minNode.value;
+  }
 }
 
 export default BinarySearchTree;
