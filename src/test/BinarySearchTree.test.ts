@@ -84,3 +84,27 @@ describe("#BinarySearchTree - search", () => {
     expect(searchResult3 ? searchResult3.value : null).toBe(2.5);
   });
 });
+
+describe("#BinarySearchTree - getMin", () => {
+  test("should return null if tree empty", () => {
+    const numTree = new BinarySearchTree<number>((n) => n);
+
+    expect(numTree.getMin()).toBeNull();
+  });
+
+  test("should return root node if no left subtree present", () => {
+    const numTree = new BinarySearchTree<number>((n) => n);
+    const val = 33;
+    numTree.insert(val);
+
+    expect(numTree.getMin()).toBe(val);
+  });
+
+  test("should return min value", () => {
+    const nums = [33, 0, 56, -73, 55.6, 777, 2, 34234, 1, 32, 3, 56];
+    const minValue = Math.min(...nums);
+    const numTree = new BinarySearchTree<number>((n) => n, nums);
+
+    expect(numTree.getMin()).toBe(minValue);
+  });
+});
