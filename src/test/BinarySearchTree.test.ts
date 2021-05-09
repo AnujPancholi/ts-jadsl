@@ -30,6 +30,16 @@ describe("#BinarySearchTree - insert", () => {
 
     expect(numTree.getPreorderTraversal()).toEqual(preorderTrav);
   });
+});
+
+describe("#BinarySearchTree - delete", () => {
+  test("should not perform delete if tree empty", () => {
+    const numTree = new BinarySearchTree<number>((n) => n);
+
+    numTree.delete(3);
+
+    expect(numTree.root).toBeNull();
+  });
 
   test("should delete node by value from BST with only left child", () => {
     const elements = [4, 2, 7, 1, 3, 5];
@@ -42,8 +52,8 @@ describe("#BinarySearchTree - insert", () => {
   });
 
   test("should delete node by value from BST with only right child", () => {
-    const elements = [4, 2, 7, 1, 3, 5, 2.5];
-    const preorderTravPostDelete = [4, 2, 1, 2.5, 7, 5];
+    const elements = [4, 2, 7, 1, 3, 5, 3.5];
+    const preorderTravPostDelete = [4, 2, 1, 3.5, 7, 5];
     const numTree = new BinarySearchTree<number>((n) => n, elements);
 
     numTree.delete(3);
