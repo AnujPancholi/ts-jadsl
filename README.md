@@ -182,6 +182,8 @@ Parameters
 
 - `search(value: T): BinaryTreeNode<T> | null` Returns tree node with `value` in BST, `null` if node not found.
 
+- `getMin(): T` Returns value in tree with min key.
+
 ---
 
 ---
