@@ -15,13 +15,13 @@
 
 ### <span id="LinkedList">Linked List:</span>:
 
-Constructor:
+##### Constructor:
 
 ```
 LinkedList<T>(initArray?: T[])
 ```
 
-Parameters:
+##### Parameters:
 
 - `initArray: T[]` (optional): Array of elements with which linked list will be initialized
 
@@ -47,13 +47,13 @@ Parameters:
 
 ### <span id="Stack">Stack:</span>:
 
-Constructor:
+##### Constructor:
 
 ```
 Stack<T>(initArray?: T[])
 ```
 
-Parameters:
+##### Parameters:
 
 - `initArray: T[]` (optional): Array of elements with which the stack will be initialized (insertion of each element performed in order)
 
@@ -74,13 +74,14 @@ Parameters:
 ### <span id="#Queue">Queue:</span>
 
 Single-ended queue.
-Constructor:
+
+##### Constructor:
 
 ```
 Queue<T>(initArray?: T[])
 ```
 
-Parameters:
+##### Parameters:
 
 - `initArray: T[]` (optional): Array of element from which the queue will be initialized (insertion of each element performed in order)
 
@@ -101,13 +102,14 @@ Parameters:
 ### <span id="Heap">Heap:</span>
 
 Can also be considered implementation of a priority queue.
-Constructor:
+
+##### Constructor:
 
 ```
 Heap<T>(comparatorFunction: (firstElement: T, secondElement: T) => number, initArray?: Array<T>)
 ```
 
-Parameters:
+##### Parameters:
 
 - `comparatorFunction: (firstElement: T, secondElement: T) => number` (mandatory): A comparator function to return a number. If number is greater than 0, bubble-up will be performed in the heapify operation.
 - `initArray: Array<T>` (optional): Array which will be heapified into initial heap.
@@ -126,13 +128,13 @@ Parameters:
 
 ### <span id="BinaryTreeNode">BinaryTreeNode:</span>
 
-Constructor
+##### Constructor
 
 ```
 BinaryTreeNode<T>(value: T)
 ```
 
-Parameters:
+##### Parameters:
 
 - `value` (mandatory): Value for the binary tree node.
 
@@ -158,13 +160,13 @@ Parameters:
 
 ### <span id="BinarySearchTree">BinarySearchTree:</span>
 
-Constructor
+##### Constructor
 
 ```
 BinarySearchTree<T>(keyFunction: (value: T) => number, initArray?: Array<T>)
 ```
 
-Parameters
+##### Parameters
 
 - `keyFunction: (value: T) => number` (mandatory): Function that takes `value` of tree node as a parameter to get the key value, on the basis of which BST inserts/search will be performed
 
