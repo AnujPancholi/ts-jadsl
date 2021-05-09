@@ -18,6 +18,10 @@ abstract class BinaryTree<T> {
   getPostorderTraversal(): Array<T> {
     return this.root === null ? [] : this.root.getPostorderTraversal();
   }
+
+  height(): number {
+    return this.root === null ? 0 : this.root.height();
+  }
 }
 
 export default BinaryTree;
