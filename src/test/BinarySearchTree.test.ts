@@ -142,18 +142,3 @@ describe("#BinarySearchTree - getMax", () => {
     expect(numTree.getMax()).toBe(maxValue);
   });
 });
-
-describe("#BinarySearchTree - height", () => {
-  test("should return 0 if tree empty", () => {
-    const numTree = new BinarySearchTree<number>((n) => n);
-
-    expect(numTree.height()).toBe(0);
-  });
-
-  test("should return height of tree", () => {
-    const nums = [33, 0, 56, -73, 55.6, 777, 2, 34234, 1, 32, 3, 56];
-    const numTree = new BinarySearchTree<number>((n) => n, nums);
-
-    expect(numTree.height()).toBe(5);
-  });
-});
