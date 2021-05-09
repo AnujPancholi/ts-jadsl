@@ -46,6 +46,20 @@ class BinarySearchTree<T> extends BinaryTree<T> {
     return null;
   }
 
+  private _getMaxNode(
+    rootNode: BinaryTreeNode<T> | null
+  ): BinaryTreeNode<T> | null {
+    if (rootNode === null) {
+      return null;
+    }
+
+    if (rootNode.right === null) {
+      return rootNode;
+    }
+
+    return this._getMaxNode(rootNode.right);
+  }
+
   private _deleteValue(
     rootNode: BinaryTreeNode<T> | null,
     value: T
@@ -115,6 +129,11 @@ class BinarySearchTree<T> extends BinaryTree<T> {
   getMin(): T | null {
     const minNode = this._getMinNode(this.root);
     return minNode === null ? null : minNode.value;
+  }
+
+  getMax(): T | null {
+    const maxNode = this._getMaxNode(this.root);
+    return maxNode === null ? null : maxNode.value;
   }
 }
 

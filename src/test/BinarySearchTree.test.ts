@@ -108,3 +108,27 @@ describe("#BinarySearchTree - getMin", () => {
     expect(numTree.getMin()).toBe(minValue);
   });
 });
+
+describe("#BinarySearchTree - getMax", () => {
+  test("should return null if tree empty", () => {
+    const numTree = new BinarySearchTree<number>((n) => n);
+
+    expect(numTree.getMax()).toBeNull();
+  });
+
+  test("should return root node if no right subtree present", () => {
+    const numTree = new BinarySearchTree<number>((n) => n);
+    const val = 33;
+    numTree.insert(val);
+
+    expect(numTree.getMax()).toBe(val);
+  });
+
+  test("should return max value", () => {
+    const nums = [33, 0, 56, -73, 55.6, 777, 2, 34234, 1, 32, 3, 56];
+    const maxValue = Math.max(...nums);
+    const numTree = new BinarySearchTree<number>((n) => n, nums);
+
+    expect(numTree.getMax()).toBe(maxValue);
+  });
+});
