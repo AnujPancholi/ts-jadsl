@@ -9,6 +9,7 @@
 - [Queue](#Queue)
 - [Heap](#Heap)
 - [BinaryTreeNode](#BinaryTreeNode)
+- [BinaryTree](#BinaryTree) (_Abstract_)
 - [BinarySearchTree](#BinarySearchTree)
 
 ---
@@ -158,7 +159,29 @@ BinaryTreeNode<T>(value: T)
 
 ---
 
+### <span id="BinaryTree">BinaryTree:</span>
+
+Abstract class - therefore, no constructor definition.
+
+##### Properties:
+
+- `root: BinaryTreeNode<T> | null` Root of the binary tree.
+
+##### Methods:
+
+- `getInorderTraversal(): Array<T>` Returns array of elements in subtree in an inorder fasion from root of tree.
+
+- `getPreorderTraversal(): Array<T>` Returns array of elements in subtree in a preorder fasion from root of tree.
+
+- `getPostorderTraversal(): Array<T>` Returns array of elements in subtree in a postorder fasion from root of tree.
+
+- `height(): number` Returns height of the tree.
+
+---
+
 ### <span id="BinarySearchTree">BinarySearchTree:</span>
+
+Derived class: Derived from [`BinaryTree`](#BinaryTree).
 
 ##### Constructor
 
