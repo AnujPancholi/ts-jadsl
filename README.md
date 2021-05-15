@@ -157,6 +157,8 @@ BinaryTreeNode<T>(value: T)
 
 - `getPostorderTraversal(): Array<T>` Returns array of elements in subtree in a postorder fasion.
 
+- `invert(): BinaryTreeNode<T> | null` Inverts subtree with node as root, returns the node.
+
 ---
 
 ### <span id="BinaryTree">BinaryTree:</span>
