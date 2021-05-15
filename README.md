@@ -179,6 +179,8 @@ Abstract class - therefore, no constructor definition.
 
 - `height(): number` Returns height of the tree.
 
+- `invert(): BinaryTree<T>` Inverts the BinaryTree, return the tree.
+
 ---
 
 ### <span id="BinarySearchTree">BinarySearchTree:</span>
