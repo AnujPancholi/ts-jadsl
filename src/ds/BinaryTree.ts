@@ -22,6 +22,11 @@ abstract class BinaryTree<T> {
   height(): number {
     return this.root === null ? 0 : this.root.height();
   }
+
+  invert(): BinaryTree<T> {
+    this.root?.invert();
+    return this;
+  }
 }
 
 export default BinaryTree;

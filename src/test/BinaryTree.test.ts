@@ -62,3 +62,15 @@ describe("#BinarySearchTree - height", () => {
     expect(numTree.height()).toBe(5);
   });
 });
+
+describe("#BinaryTree - invert", () => {
+  test("should invert tree", () => {
+    const elements = [4, 2, 7, 1, 3, 5];
+    const preorderTravPostInvert = [4, 7, 5, 2, 3, 1];
+    const numTree = new BinarySearchTree<number>((n) => n, elements);
+
+    numTree.invert();
+
+    expect(numTree.getPreorderTraversal()).toEqual(preorderTravPostInvert);
+  });
+});
