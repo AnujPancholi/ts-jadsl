@@ -9,6 +9,18 @@ class BinaryTreeNode<T> {
     this.right = null;
   }
 
+  private _invertSubtree(
+    rootNode: BinaryTreeNode<T> | null
+  ): BinaryTreeNode<T> | null {
+    if (rootNode === null) {
+      return null;
+    }
+    const temp = rootNode.right;
+    rootNode.right = this._invertSubtree(rootNode.left);
+    rootNode.left = this._invertSubtree(temp);
+    return rootNode;
+  }
+
   isLeafNode(): boolean {
     return this.left === null && this.right === null;
   }
@@ -82,6 +94,10 @@ class BinaryTreeNode<T> {
     populatePostorderTraversalRecursive(this, postorderTrav);
 
     return postorderTrav;
+  }
+
+  invert(): BinaryTreeNode<T> | null {
+    return this._invertSubtree(this);
   }
 }
 

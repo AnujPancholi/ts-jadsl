@@ -1,4 +1,4 @@
-import { BinaryTreeNode } from "../index";
+import { BinaryTreeNode, BinarySearchTree } from "../index";
 
 describe("#BinaryTreeNode - constructor", () => {
   test("should construct single node", () => {
@@ -65,5 +65,19 @@ describe("#BinaryTreeNode - traversal functions", () => {
     const expectedTraversal = [4, 5, 2, 3, 1];
     const postorderTrav = rootNode.getPostorderTraversal();
     expect(postorderTrav).toEqual(expectedTraversal);
+  });
+});
+
+describe("#BinaryTreeNode - invert", () => {
+  test("should invert tree", () => {
+    const elements = [4, 2, 7, 1, 3, 5];
+    const preorderTravPostInvert = [4, 7, 5, 2, 3, 1];
+    const numTree = new BinarySearchTree<number>((n) => n, elements);
+
+    const rootNode = numTree.root;
+
+    rootNode?.invert();
+
+    expect(rootNode?.getPreorderTraversal()).toEqual(preorderTravPostInvert);
   });
 });
