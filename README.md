@@ -15,7 +15,7 @@
 
 ---
 
-### <span id="LinkedList">Linked List:</span>:
+### <span id="ListNode">ListNode:</span>
 
 A node of a singly-linked list.
 
@@ -34,15 +34,15 @@ ListNode<T>(value: T)
 
 - `initArray: T[]` (optional): Array of elements with which linked list will be initialized
 
-### <span id="LinkedList">Linked List:</span>:
+### <span id="LinkedList">LinkedList:</span>
+
+A simple, singly-linked list.
 
 ##### Constructor:
 
 ```
 LinkedList<T>(initArray?: T[])
 ```
-
-A simple, singly-linked list.
 
 ##### Parameters:
 
@@ -68,7 +68,7 @@ A simple, singly-linked list.
 
 ---
 
-### <span id="Stack">Stack:</span>:
+### <span id="Stack">Stack:</span>
 
 ##### Constructor:
 
@@ -96,15 +96,13 @@ Stack<T>(initArray?: T[])
 
 ### <span id="#Queue">Queue:</span>
 
-Single-ended queue.
+A simple, single-ended queue.
 
 ##### Constructor:
 
 ```
 Queue<T>(initArray?: T[])
 ```
-
-A simple, single-ended queue.
 
 ##### Parameters:
 
