@@ -102,6 +102,7 @@ Queue<T>(initArray?: T[])
 
 ### <span id="Heap">Heap:</span>
 
+A binary heap with internally implemented with an array.
 Can also be considered implementation of a priority queue.
 
 ##### Constructor:
@@ -109,8 +110,6 @@ Can also be considered implementation of a priority queue.
 ```
 Heap<T>(comparatorFunction: (firstElement: T, secondElement: T) => number, initArray?: Array<T>)
 ```
-
-A binary heap with internally implemented with an array.
 
 ##### Parameters:
 
