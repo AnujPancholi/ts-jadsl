@@ -4,6 +4,7 @@
 
 ### Data Structures:
 
+- [ListNode](#ListNode)
 - [LinkedList](#LinkedList)
 - [Stack](#Stack)
 - [Queue](#Queue)
@@ -16,11 +17,32 @@
 
 ### <span id="LinkedList">Linked List:</span>:
 
+A node of a singly-linked list.
+
+##### Constructor:
+
+```
+ListNode<T>(value: T)
+```
+
+##### Properties
+
+- `value: T` Value held by node.
+- `next: ListNode<T> | null` Next pointer of node.
+
+##### Parameters:
+
+- `initArray: T[]` (optional): Array of elements with which linked list will be initialized
+
+### <span id="LinkedList">Linked List:</span>:
+
 ##### Constructor:
 
 ```
 LinkedList<T>(initArray?: T[])
 ```
+
+A simple, singly-linked list.
 
 ##### Parameters:
 
@@ -81,6 +103,8 @@ Single-ended queue.
 ```
 Queue<T>(initArray?: T[])
 ```
+
+A simple, single-ended queue.
 
 ##### Parameters:
 
