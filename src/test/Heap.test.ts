@@ -16,7 +16,7 @@ describe("#Heap - constructor", () => {
 
     let i = 0;
     while (freshMinHeap.size() > 0) {
-      expect(freshMinHeap.pop()).toBe(sortedHeapData[i]);
+      expect(freshMinHeap.extract()).toBe(sortedHeapData[i]);
       ++i;
     }
   });
@@ -53,7 +53,7 @@ describe("#Heap - insert", () => {
     expect(freshHeap.size()).toBe(heapData.length);
     let i = 0;
     while (freshHeap.size() > 0) {
-      const poppedVal = freshHeap.pop();
+      const poppedVal = freshHeap.extract();
       expect(poppedVal).toEqual(sortedHeapData[i]);
       ++i;
     }
@@ -82,7 +82,7 @@ describe("#Heap - insert", () => {
     expect(freshHeap.size()).toBe(heapData.length);
     let i = 0;
     while (freshHeap.size() > 0) {
-      const poppedVal = freshHeap.pop();
+      const poppedVal = freshHeap.extract();
       expect(poppedVal).toBeDefined();
 
       expect(poppedVal !== null ? poppedVal.val : null).toBeDefined();
@@ -115,7 +115,7 @@ describe("#Heap - insert", () => {
     expect(freshHeap.size()).toBe(heapData.length);
     let i = 0;
     while (freshHeap.size() > 0) {
-      const poppedVal = freshHeap.pop();
+      const poppedVal = freshHeap.extract();
       expect(poppedVal).toBeDefined();
 
       expect(poppedVal !== null ? poppedVal.val : null).toBeDefined();
@@ -137,7 +137,7 @@ describe("#Heap - pop", () => {
     }
     let i = 0;
     while (freshHeap.size() > 1) {
-      const poppedValue = freshHeap.pop();
+      const poppedValue = freshHeap.extract();
       expect(poppedValue).toBe(sortedHeapData[i]);
       expect(freshHeap.peek()).toBe(sortedHeapData[i + 1]);
       ++i;
@@ -147,6 +147,6 @@ describe("#Heap - pop", () => {
 
   test("should return null if heap empty", () => {
     const freshHeap = new Heap<number>((a, b) => a - b);
-    expect(freshHeap.pop()).toBeNull();
+    expect(freshHeap.extract()).toBeNull();
   });
 });

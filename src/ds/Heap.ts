@@ -88,7 +88,7 @@ class Heap<T> {
     return this;
   }
 
-  pop(): T | null {
+  extract(): T | null {
     const poppedValue = this._array[0];
     const tailValue = this._array.pop();
     if (tailValue === undefined) {
