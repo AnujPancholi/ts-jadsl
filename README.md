@@ -110,6 +110,8 @@ Can also be considered implementation of a priority queue.
 Heap<T>(comparatorFunction: (firstElement: T, secondElement: T) => number, initArray?: Array<T>)
 ```
 
+A binary heap with internally implemented with an array.
+
 ##### Parameters:
 
 - `comparatorFunction: (firstElement: T, secondElement: T) => number` (mandatory): A comparator function to return a number. If number is greater than 0, bubble-up will be performed in the heapify operation.
@@ -119,9 +121,9 @@ Heap<T>(comparatorFunction: (firstElement: T, secondElement: T) => number, initA
 
 - `insert(value: T): Heap<T>` Inserts `value` in the heap.
 
-- `pop(): T | null` Removes and returns value from top of heap. Returns `null` if heap empty.
+- `extract(): T | null` Removes and returns value from root of heap (highest priority). Returns `null` if heap empty.
 
-- `peek(): T | null` Returns value at top of heap.
+- `peek(): T | null` Returns value at root of heap.
 
 - `size(): number` Returns size of heap (number of elements)
 
