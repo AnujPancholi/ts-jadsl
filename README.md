@@ -78,7 +78,7 @@ Stack<T>(initArray?: T[])
 
 ##### Parameters:
 
-- `initArray: T[]` (optional): Array of elements with which the stack will be initialized (insertion of each element performed in order)
+- `initArray: T[]` (optional): Array of elements with which the stack will be initialized (insertion of each element performed in reverse order)
 
 ##### Methods:
 
