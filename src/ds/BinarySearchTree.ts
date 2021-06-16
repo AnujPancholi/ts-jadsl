@@ -71,11 +71,9 @@ class BinarySearchTree<T> extends BinaryTree<T> {
     } else if (this._getKey(value) > this._getKey(rootNode.value)) {
       rootNode.right = this._deleteValue(rootNode.right, value);
     } else {
-      if (rootNode.isLeafNode()) {
-        return null;
-      } else if (rootNode.left === null && rootNode.right) {
+      if (rootNode.left === null) {
         return rootNode.right;
-      } else if (rootNode.left && rootNode.right === null) {
+      } else if (rootNode.right === null) {
         return rootNode.left;
       } else {
         const minNodeOfRightSubtree = this._getMinNode(rootNode.right);
