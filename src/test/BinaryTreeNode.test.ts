@@ -81,3 +81,34 @@ describe("#BinaryTreeNode - invert", () => {
     expect(rootNode?.getPreorderTraversal()).toEqual(preorderTravPostInvert);
   });
 });
+
+describe("#BinaryTree - heightBalanceFactor", () => {
+  const binTree: BinarySearchTree<number> = new BinarySearchTree<number>(
+    (n) => n,
+    [4, 2, 7, 1, 3, 5, 0.5, 1.2, 1.3, 8, 3.1]
+  );
+
+  test("should return 2", () => {
+    const targetNode = binTree.root;
+
+    expect(targetNode?.heightBalanceFactor()).toBe(2);
+  });
+
+  test("should return 1", () => {
+    const targetNode = binTree.root?.left;
+
+    expect(targetNode?.heightBalanceFactor()).toBe(1);
+  });
+
+  test("should return 0", () => {
+    const targetNode = binTree.root?.right;
+
+    expect(targetNode?.heightBalanceFactor()).toBe(0);
+  });
+
+  test("should return -1", () => {
+    const targetNode = binTree.root?.left?.left;
+
+    expect(targetNode?.heightBalanceFactor()).toBe(-1);
+  });
+});

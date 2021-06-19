@@ -35,6 +35,13 @@ class BinaryTreeNode<T> {
     );
   }
 
+  heightBalanceFactor(): number {
+    return (
+      (this.left ? this.left.height() : 0) -
+      (this.right ? this.right.height() : 0)
+    );
+  }
+
   getInorderTraversal(): Array<T> {
     const inorderTrav: Array<T> = [];
 
