@@ -2,7 +2,7 @@ import BinaryTree from "./BinaryTree";
 import BinaryTreeNode from "./BinaryTreeNode";
 
 class BinarySearchTree<T> extends BinaryTree<T> {
-  private _getKey: (value: T) => number;
+  protected _getKey: (value: T) => number;
 
   constructor(keyFunction: (value: T) => number);
   constructor(keyFunction: (value: T) => number, initArray: Array<T>);
@@ -17,7 +17,7 @@ class BinarySearchTree<T> extends BinaryTree<T> {
     }
   }
 
-  private _insertValue(
+  protected _insertValue(
     rootNode: BinaryTreeNode<T> | null,
     value: T
   ): BinaryTreeNode<T> | null {
@@ -34,7 +34,7 @@ class BinarySearchTree<T> extends BinaryTree<T> {
     return rootNode;
   }
 
-  private _getMinNode(
+  protected _getMinNode(
     rootNode: BinaryTreeNode<T> | null
   ): BinaryTreeNode<T> | null {
     if (rootNode) {
@@ -46,7 +46,7 @@ class BinarySearchTree<T> extends BinaryTree<T> {
     return null;
   }
 
-  private _getMaxNode(
+  protected _getMaxNode(
     rootNode: BinaryTreeNode<T> | null
   ): BinaryTreeNode<T> | null {
     if (rootNode === null) {
@@ -60,7 +60,7 @@ class BinarySearchTree<T> extends BinaryTree<T> {
     return this._getMaxNode(rootNode.right);
   }
 
-  private _deleteValue(
+  protected _deleteValue(
     rootNode: BinaryTreeNode<T> | null,
     value: T
   ): BinaryTreeNode<T> | null {
@@ -93,7 +93,7 @@ class BinarySearchTree<T> extends BinaryTree<T> {
     return rootNode;
   }
 
-  private _searchValue(
+  protected _searchValue(
     rootNode: BinaryTreeNode<T> | null,
     value: T
   ): BinaryTreeNode<T> | null {
