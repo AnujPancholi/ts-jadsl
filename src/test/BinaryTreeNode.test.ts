@@ -82,7 +82,7 @@ describe("#BinaryTreeNode - invert", () => {
   });
 });
 
-describe("#BinaryTree - heightBalanceFactor", () => {
+describe("#BinaryTreeNode - heightBalanceFactor", () => {
   const binTree: BinarySearchTree<number> = new BinarySearchTree<number>(
     (n) => n,
     [4, 2, 7, 1, 3, 5, 0.5, 1.2, 1.3, 8, 3.1]
@@ -110,5 +110,32 @@ describe("#BinaryTree - heightBalanceFactor", () => {
     const targetNode = binTree.root?.left?.left;
 
     expect(targetNode?.heightBalanceFactor()).toBe(-1);
+  });
+});
+
+describe("#BinaryTreeNode - isBalanced", () => {
+  const binTree: BinarySearchTree<number> = new BinarySearchTree<number>(
+    (n) => n,
+    [4, 2, 7, 1, 3, 5, 0.5, 1.2, 1.3, 8, 3.1]
+  );
+
+  test("should return false for subtree with height balance 2", () => {
+    const unbalancedNode = binTree.root;
+    expect(unbalancedNode?.isBalanced()).toBe(false);
+  });
+
+  test("should return true for subtree with height balance 0", () => {
+    const balancedNode = binTree.root?.right;
+    expect(balancedNode?.isBalanced()).toBe(true);
+  });
+
+  test("should return true for subtree with height balance 1", () => {
+    const balancedNode = binTree.root?.left;
+    expect(balancedNode?.isBalanced()).toBe(true);
+  });
+
+  test("should return true for subtree with height balance of -1", () => {
+    const balancedNode = binTree.root?.left?.left;
+    expect(balancedNode?.isBalanced()).toBe(true);
   });
 });

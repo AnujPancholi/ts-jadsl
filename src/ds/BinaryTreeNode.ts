@@ -106,6 +106,28 @@ class BinaryTreeNode<T> {
   invert(): BinaryTreeNode<T> | null {
     return this._invertSubtree(this);
   }
+
+  protected _getBalanceInfo(
+    treeNode: BinaryTreeNode<T> | null
+  ): [number, boolean] {
+    if (treeNode === null) {
+      return [0, true];
+    }
+    const [leftHeight, isLeftBalanced] = this._getBalanceInfo(treeNode.left);
+    const [rightHeight, isRightBalanced] = this._getBalanceInfo(treeNode.right);
+
+    const heightBalance = leftHeight - rightHeight;
+    const height = 1 + Math.max(leftHeight, rightHeight);
+
+    return [
+      height,
+      isLeftBalanced && isRightBalanced && Math.abs(heightBalance) <= 1,
+    ];
+  }
+
+  isBalanced(): boolean {
+    return this._getBalanceInfo(this)[1];
+  }
 }
 
 export default BinaryTreeNode;
