@@ -111,6 +111,12 @@ describe("#BinaryTreeNode - heightBalanceFactor", () => {
 
     expect(targetNode?.heightBalanceFactor()).toBe(-1);
   });
+
+  test("should return 0 for leaf node", () => {
+    const targetNode = binTree.root?.right?.right;
+
+    expect(targetNode?.heightBalanceFactor()).toBe(0);
+  });
 });
 
 describe("#BinaryTreeNode - isBalanced", () => {
