@@ -73,4 +73,12 @@ describe("#BinaryTree - invert", () => {
 
     expect(numTree.getPreorderTraversal()).toEqual(preorderTravPostInvert);
   });
+
+  test("should do nothing for empty", () => {
+    const numTree = new BinarySearchTree<number>((n) => n);
+
+    numTree.invert();
+
+    expect(numTree.root).toBeNull();
+  });
 });
