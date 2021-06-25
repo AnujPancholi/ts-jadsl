@@ -34,16 +34,14 @@ class BinarySearchTree<T> extends BinaryTree<T> {
     return rootNode;
   }
 
-  protected _getMinNode(
-    rootNode: BinaryTreeNode<T> | null
-  ): BinaryTreeNode<T> | null {
-    if (rootNode) {
-      if (rootNode.left === null) {
-        return rootNode;
-      }
-      return this._getMinNode(rootNode.left);
+  protected _getMinNode(rootNode: BinaryTreeNode<T>): BinaryTreeNode<T> {
+    // if (rootNode) {
+    if (rootNode.left === null) {
+      return rootNode;
     }
-    return null;
+    return this._getMinNode(rootNode.left);
+    // }
+    // return null;
   }
 
   protected _getMaxNode(
@@ -78,15 +76,13 @@ class BinarySearchTree<T> extends BinaryTree<T> {
       } else {
         const minNodeOfRightSubtree = this._getMinNode(rootNode.right);
 
-        const freshNode = minNodeOfRightSubtree
-          ? new BinaryTreeNode<T>(minNodeOfRightSubtree.value)
-          : null;
-        if (freshNode) {
-          freshNode.left = rootNode.left;
-          freshNode.right = this._deleteValue(rootNode.right, freshNode.value);
+        const freshNode = new BinaryTreeNode<T>(minNodeOfRightSubtree.value);
+        // if (freshNode) {
+        freshNode.left = rootNode.left;
+        freshNode.right = this._deleteValue(rootNode.right, freshNode.value);
 
-          return freshNode;
-        }
+        return freshNode;
+        // }
       }
     }
 
@@ -125,8 +121,7 @@ class BinarySearchTree<T> extends BinaryTree<T> {
   }
 
   getMin(): T | null {
-    const minNode = this._getMinNode(this.root);
-    return minNode === null ? null : minNode.value;
+    return this.root === null ? null : this._getMinNode(this.root).value;
   }
 
   getMax(): T | null {
