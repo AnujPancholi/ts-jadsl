@@ -27,6 +27,10 @@ abstract class BinaryTree<T> {
     this.root?.invert();
     return this;
   }
+
+  isBalanced(): boolean {
+    return this.root === null ? true : this.root.isBalanced();
+  }
 }
 
 export default BinaryTree;

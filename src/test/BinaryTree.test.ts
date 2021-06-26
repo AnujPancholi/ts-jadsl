@@ -82,3 +82,28 @@ describe("#BinaryTree - invert", () => {
     expect(numTree.root).toBeNull();
   });
 });
+
+describe("#BinaryTree - isBalanced", () => {
+  test("should return true for enpty tree", () => {
+    const binTree: BinarySearchTree<number> = new BinarySearchTree<number>(
+      (n) => n
+    );
+    expect(binTree.isBalanced()).toBe(true);
+  });
+
+  test("should return true for balanced tree", () => {
+    const binTree: BinarySearchTree<number> = new BinarySearchTree<number>(
+      (n) => n,
+      [5, 6, 2]
+    );
+    expect(binTree.isBalanced()).toBe(true);
+  });
+
+  test("should return false for unbalanced tree", () => {
+    const binTree: BinarySearchTree<number> = new BinarySearchTree<number>(
+      (n) => n,
+      [5, 6, 4, 7, 3, 1, 2]
+    );
+    expect(binTree.isBalanced()).toBe(false);
+  });
+});
