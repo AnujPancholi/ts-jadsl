@@ -182,6 +182,8 @@ BinaryTreeNode<T>(value: T)
 
 - `invert(): BinaryTreeNode<T> | null` Inverts subtree with node as root, returns the node.
 
+- `isBalanced(): boolean` Returns `true` if subtree rooted at node is height balanced, `false` if otherwise.
+
 ---
 
 ### <span id="BinaryTree">BinaryTree:</span>
@@ -203,6 +205,8 @@ Abstract class - therefore, no constructor definition.
 - `height(): number` Returns height of the tree.
 
 - `invert(): BinaryTree<T>` Inverts the BinaryTree, return the tree.
+
+- `isBalanced(): boolean` Returns `true` if binary tree is height balanced, `false` if otherwise.
 
 ---
 
