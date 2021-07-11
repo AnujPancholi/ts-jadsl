@@ -61,7 +61,7 @@ class LinkedList<T> {
         for (let i = 0; i < index - 1 && walker !== null; ++i) {
           walker = walker.next;
         }
-        freshNode.next = walker ? walker.next : null;
+        freshNode.next = walker?.next ?? null;
         if (walker === this._tail) {
           this._tail = freshNode;
         }

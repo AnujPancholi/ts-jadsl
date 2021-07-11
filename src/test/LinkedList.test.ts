@@ -37,6 +37,7 @@ describe("#LinkedList - get", () => {
   test("fetch null for invalid indices", () => {
     expect(list.get(-1)).toBeNull();
     expect(list.get(listData.length)).toBeNull();
+    expect(list.get(list.length() + 1)).toBeNull();
   });
 
   test("fetch null for any index in empty list", () => {
