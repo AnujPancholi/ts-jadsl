@@ -12,6 +12,7 @@
 - [BinaryTreeNode](#BinaryTreeNode)
 - [BinaryTree](#BinaryTree) (_Abstract_)
 - [BinarySearchTree](#BinarySearchTree)
+- [AvlTree](#AvlTree)
 
 ---
 
@@ -231,6 +232,40 @@ BinarySearchTree<T>(keyFunction: (value: T) => number, initArray?: Array<T>)
 ##### Properties:
 
 - `root: BinaryTreeNode<T> | null` Root node of the binary tree
+
+##### Methods:
+
+- `insert(value: T): BinarySearchTree<T>` Inserts new node with `value` in BST, returns BST instance.
+
+- `delete(value: T): BinarySearchTree<T>` Deletes node with `value` in BST, returns BST instance.
+
+- `search(value: T): BinaryTreeNode<T> | null` Returns tree node with `value` in BST, `null` if node not found.
+
+- `getMin(): T | null` Returns value in tree with min key, `null` if tree empty.
+
+- `getMax(): T | null` Returns value in tree with max key, `null` if tree empty.
+
+---
+
+### <span id="AvlTree">AvlTree:</span>
+
+Derived class: Derived from [`BinarySearchTree`](#BinarySearchTree).
+
+##### Constructor
+
+```
+AvlTree<T>(keyFunction: (value: T) => number, initArray?: Array<T>)
+```
+
+##### Parameters
+
+- `keyFunction: (value: T) => number` (mandatory): Function that takes `value` of tree node as a parameter to get the key value, on the basis of which BST inserts/search will be performed
+
+- `initArray: Array<T>` (optional): Array with which tree is initialized by inserting elements of array in order.
+
+##### Properties:
+
+- `root: BinaryTreeNode<T> | null` Root node of the binary tree - (**NOTE**: Access this property ONLY if you do not wish to use the methods of the class, and want to write your own functions)
 
 ##### Methods:
 
