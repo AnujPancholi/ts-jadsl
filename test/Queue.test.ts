@@ -1,4 +1,4 @@
-import { Queue } from "../index";
+import { Queue } from "../src/index";
 
 describe("#Queue - constructor", () => {
   test("empty queue", () => {

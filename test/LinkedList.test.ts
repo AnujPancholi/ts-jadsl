@@ -1,4 +1,4 @@
-import { LinkedList, ListNode } from "../index";
+import { LinkedList, ListNode } from "../src/index";
 
 describe("#LinkedList - constructor", () => {
   test("make empty list", () => {

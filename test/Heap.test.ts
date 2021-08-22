@@ -1,4 +1,4 @@
-import { Heap } from "../index";
+import { Heap } from "../src/index";
 
 describe("#Heap - constructor", () => {
   test("should construct empty heap", () => {

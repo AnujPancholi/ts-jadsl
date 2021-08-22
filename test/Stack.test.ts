@@ -1,4 +1,4 @@
-import { Stack } from "../index";
+import { Stack } from "../src/index";
 
 describe("#Stack - constructor", () => {
   test("create empty stack in when nothing passed to constructor", () => {

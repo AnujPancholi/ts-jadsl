@@ -1,4 +1,4 @@
-import AvlTreeNode from "../ds/AvlTreeNode";
+import AvlTreeNode from "../src/ds/AvlTreeNode";
 
 describe("#AvlTreeNode - constructor", () => {
   test("should construct empty node", () => {

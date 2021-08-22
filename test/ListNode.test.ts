@@ -1,4 +1,4 @@
-import { ListNode } from "../index";
+import { ListNode } from "../src/index";
 
 describe("#ListNode - constructor", () => {
   test("construct new node with given data", () => {

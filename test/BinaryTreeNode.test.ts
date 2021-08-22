@@ -1,4 +1,4 @@
-import { BinaryTreeNode, BinarySearchTree } from "../index";
+import { BinaryTreeNode, BinarySearchTree } from "../src/index";
 
 describe("#BinaryTreeNode - constructor", () => {
   test("should construct single node", () => {

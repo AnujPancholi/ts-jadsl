@@ -1,4 +1,4 @@
-import BinarySearchTree from "../ds/BinarySearchTree";
+import BinarySearchTree from "../src/ds/BinarySearchTree";
 
 describe("#BinaryTree - getPreorderTraversal", () => {
   test("should get empty array for empty tree", () => {

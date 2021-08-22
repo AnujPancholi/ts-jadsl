@@ -1,4 +1,4 @@
-import BinarySearchTree from "../ds/BinarySearchTree";
+import BinarySearchTree from "../src/ds/BinarySearchTree";
 
 describe("#BinarySearchTree - constructor", () => {
   test("should return empty tree", () => {
