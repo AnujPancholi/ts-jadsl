@@ -17,6 +17,13 @@ interface InsertionTestCase {
   val: number;
 }
 
+interface SearchTestCase {
+  input: number[];
+  searchValue: number;
+  resultValue: number | null;
+  searchResultNodeChildValues: Array<number | null>;
+}
+
 describe("#AvlTree - constructor", () => {
   test("should construct empty tree if only key function passed", () => {
     const numAvlTree = new AvlTree<number>((n: number) => n);
@@ -104,6 +111,59 @@ describe("#AvlTree - insert", () => {
       assertBalancedBst<number>(numAvlTree.root, (n: number) => n);
       expect(numAvlTree.getPostorderTraversal()).toEqual(
         testCase.expectedPostorder
+      );
+    }
+  });
+});
+
+describe("#AvlTree - search", () => {
+  test("should search values in AVL tree", () => {
+    const testCases: Array<SearchTestCase> = [
+      {
+        input: [1, 2, 3, 4, 5],
+        searchValue: 4,
+        resultValue: 4,
+        searchResultNodeChildValues: [3, 5],
+      },
+      {
+        input: [1, 2, 3, 4, 5],
+        searchValue: 8,
+        resultValue: null,
+        searchResultNodeChildValues: [null, null],
+      },
+      {
+        input: [1, 2, 3, 4, 5, 0.5],
+        searchValue: 1,
+        resultValue: 1,
+        searchResultNodeChildValues: [0.5, null],
+      },
+      {
+        input: [1, 2, 3, 4, 5, 0.5, 10, 8],
+        searchValue: 10,
+        resultValue: 10,
+        searchResultNodeChildValues: [null, null],
+      },
+      {
+        input: [1, 2, 3, 4, 5, 0.5, 10, 8],
+        searchValue: 0.5,
+        resultValue: 0.5,
+        searchResultNodeChildValues: [null, null],
+      },
+    ];
+
+    for (let i = 0; i < testCases.length; ++i) {
+      const testCase: SearchTestCase = testCases[i];
+      const numAvlTree = new AvlTree<number>((n: number) => n, testCase.input);
+
+      const searchedNode = numAvlTree.search(testCase.searchValue);
+
+      expect((searchedNode?.value || null) === testCase.resultValue).toBe(true);
+      assertBalancedBst<number>(numAvlTree.root, (n: number) => n);
+      expect(searchedNode?.left?.value || null).toBe(
+        testCase.searchResultNodeChildValues[0]
+      );
+      expect(searchedNode?.right?.value || null).toBe(
+        testCase.searchResultNodeChildValues[1]
       );
     }
   });
