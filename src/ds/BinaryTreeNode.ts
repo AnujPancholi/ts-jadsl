@@ -1,10 +1,12 @@
 class BinaryTreeNode<T> {
   value: T;
+  subtreeHeight: number;
   left: BinaryTreeNode<T> | null;
   right: BinaryTreeNode<T> | null;
 
   constructor(value: T) {
     this.value = value;
+    this.subtreeHeight = 1;
     this.left = null;
     this.right = null;
   }
