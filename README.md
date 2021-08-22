@@ -184,6 +184,8 @@ BinaryTreeNode<T>(value: T)
 
 - `isBalanced(): boolean` Returns `true` if subtree rooted at node is height balanced, `false` if otherwise.
 
+- `isBinarySearchTree(keyFunction: (value: T) => number)` Returns `true` if subtree rooted at node is a valid binary search tree, needs a `keyFunction` to get numeric value from data stored in node (see [`BinarySearchTree`](#BinarySearchTree))
+
 ---
 
 ### <span id="BinaryTree">BinaryTree:</span>
