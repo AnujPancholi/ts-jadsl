@@ -139,6 +139,65 @@ class AvlTree<T> extends BinarySearchTree<T> {
 
     return treeNode;
   }
+
+  protected _deleteValue(
+    rootNode: BinaryTreeNode<T> | null,
+    value: T
+  ): BinaryTreeNode<T> | null {
+    if (rootNode === null) {
+      return null;
+    } else if (this._getKey(value) < this._getKey(rootNode.value)) {
+      rootNode.left = this._deleteValue(rootNode.left, value);
+    } else if (this._getKey(value) > this._getKey(rootNode.value)) {
+      rootNode.right = this._deleteValue(rootNode.right, value);
+    } else {
+      if (rootNode.left === null) {
+        return rootNode.right;
+      } else if (rootNode.right === null) {
+        return rootNode.left;
+      } else {
+        const minNodeOfRightSubtree = this._getMinNode(rootNode.right);
+
+        const freshNode = new BinaryTreeNode<T>(minNodeOfRightSubtree.value);
+
+        freshNode.left = rootNode.left;
+        freshNode.right = this._deleteValue(rootNode.right, freshNode.value);
+
+        rootNode = freshNode;
+      }
+    }
+
+    const rightSubtreeHeight = rootNode.right?.subtreeHeight || 0;
+    const leftSubtreeHeight = rootNode.left?.subtreeHeight || 0;
+
+    rootNode.subtreeHeight =
+      1 + Math.max(leftSubtreeHeight, rightSubtreeHeight);
+    const balanceFactor = leftSubtreeHeight - rightSubtreeHeight;
+
+    if (balanceFactor === 2) {
+      if (
+        (rootNode.left?.left?.subtreeHeight || 0) -
+          (rootNode.left?.right?.subtreeHeight || 0) >
+        -1
+      ) {
+        rootNode = this._llRotation(rootNode);
+      } else {
+        rootNode = this._lrRotation(rootNode);
+      }
+    } else if (balanceFactor === -2) {
+      if (
+        (rootNode.right?.left?.subtreeHeight || 0) -
+          (rootNode.right?.right?.subtreeHeight || 0) <
+        1
+      ) {
+        rootNode = this._rrRotation(rootNode);
+      } else {
+        rootNode = this._rlRotation(rootNode);
+      }
+    }
+
+    return rootNode;
+  }
 }
 
 export default AvlTree;
