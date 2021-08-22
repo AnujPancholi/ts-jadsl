@@ -14,7 +14,7 @@ interface InsertionTestCase {
   input: number[];
   expectedRootValue: number;
   expectedPostorder: number[];
-  valueToInsert: number;
+  val: number;
 }
 
 describe("#AvlTree - constructor", () => {
@@ -29,25 +29,25 @@ describe("#AvlTree - constructor", () => {
     const testCases: Array<InsertionTestCase> = [
       {
         input: [1, 2, 3, 4, 5, 6],
-        valueToInsert: 0,
+        val: 0,
         expectedRootValue: 4,
         expectedPostorder: [1, 3, 2, 6, 5, 4],
       },
       {
         input: [5, 4, 3, 2, 1],
-        valueToInsert: 0,
+        val: 0,
         expectedRootValue: 4,
         expectedPostorder: [1, 3, 2, 5, 4],
       },
       {
         input: [20, 15, 17],
-        valueToInsert: 0,
+        val: 0,
         expectedRootValue: 17,
         expectedPostorder: [15, 20, 17],
       },
       {
         input: [20, 25, 22],
-        valueToInsert: 0,
+        val: 0,
         expectedRootValue: 22,
         expectedPostorder: [20, 25, 22],
       },
@@ -71,25 +71,25 @@ describe("#AvlTree - insert", () => {
     const testCases: Array<InsertionTestCase> = [
       {
         input: [1, 2, 3, 4, 5],
-        valueToInsert: 6,
+        val: 6,
         expectedRootValue: 4,
         expectedPostorder: [1, 3, 2, 6, 5, 4],
       },
       {
         input: [5, 4, 3, 2, 1],
-        valueToInsert: 6,
+        val: 6,
         expectedRootValue: 4,
         expectedPostorder: [1, 3, 2, 6, 5, 4],
       },
       {
         input: [20, 15, 17, 10, 16.5],
-        valueToInsert: 16.1,
+        val: 16.1,
         expectedRootValue: 16.5,
         expectedPostorder: [10, 16.1, 15, 20, 17, 16.5],
       },
       {
         input: [20, 15, 17, 10, 16.5, 45],
-        valueToInsert: 30,
+        val: 30,
         expectedRootValue: 17,
         expectedPostorder: [10, 16.5, 15, 20, 45, 30, 17],
       },
@@ -98,7 +98,7 @@ describe("#AvlTree - insert", () => {
     for (let i = 0; i < testCases.length; ++i) {
       const testCase: InsertionTestCase = testCases[i];
       const numAvlTree = new AvlTree<number>((n: number) => n, testCase.input);
-      numAvlTree.insert(testCase.valueToInsert);
+      numAvlTree.insert(testCase.val);
 
       expect(numAvlTree.root?.value).toBe(testCase.expectedRootValue);
       assertBalancedBst<number>(numAvlTree.root, (n: number) => n);
