@@ -145,3 +145,20 @@ describe("#BinaryTreeNode - isBalanced", () => {
     expect(balancedNode?.isBalanced()).toBe(true);
   });
 });
+
+describe("#BinaryTreeNode - isBinarySearchTree", () => {
+  test("should return true for BST", () => {
+    const bst = new BinarySearchTree<number>((n) => n, [3, 4, 2, 5, 1]);
+
+    expect(bst.root?.isBinarySearchTree((n) => n)).toBe(true);
+  });
+
+  test("#BinaryTreeNode - isBinarySearchTree", () => {
+    const treeNode = new BinaryTreeNode<number>(10);
+    treeNode.right = new BinaryTreeNode<number>(20);
+    treeNode.left = new BinaryTreeNode<number>(5);
+    treeNode.left.right = new BinaryTreeNode<number>(30);
+
+    expect(treeNode.isBinarySearchTree((n) => n)).toBe(false);
+  });
+});

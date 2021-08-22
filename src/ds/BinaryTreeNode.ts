@@ -127,8 +127,46 @@ class BinaryTreeNode<T> {
     ];
   }
 
+  protected _validateBinarySearchTree(
+    treeNode: BinaryTreeNode<T> | null,
+    keyFunction: (value: T) => number,
+    min: number,
+    max: number
+  ): boolean {
+    if (treeNode === null) {
+      return true;
+    }
+    const currValue = keyFunction(treeNode.value);
+
+    return (
+      currValue > min &&
+      currValue <= max &&
+      this._validateBinarySearchTree(
+        treeNode.left,
+        keyFunction,
+        min,
+        currValue
+      ) &&
+      this._validateBinarySearchTree(
+        treeNode.right,
+        keyFunction,
+        currValue,
+        max
+      )
+    );
+  }
+
   isBalanced(): boolean {
     return this._getBalanceInfo(this)[1];
+  }
+
+  isBinarySearchTree(keyFunction: (value: T) => number): boolean {
+    return this._validateBinarySearchTree(
+      this,
+      keyFunction,
+      Number.MIN_VALUE,
+      Number.MAX_VALUE
+    );
   }
 }
 
