@@ -1,5 +1,7 @@
-import AvlTreeNode from "./AvlTreeNode";
+import BinaryTreeNode from "./BinaryTreeNode";
 import BinaryTree from "./BinaryTree";
+
+//WIP
 
 class AvlTree<T> extends BinaryTree<T> {
   protected _getKey: (value: T) => number;
@@ -9,12 +11,6 @@ class AvlTree<T> extends BinaryTree<T> {
   constructor(keyFunction: (value: T) => number, initArray?: T[]) {
     super();
     this._getKey = keyFunction;
-
-    if (initArray) {
-      for (const value of initArray) {
-        this.root = new AvlTreeNode<T>(value);
-      }
-    }
   }
 }
 
