@@ -1,16 +1,13 @@
 import BinaryTreeNode from "./BinaryTreeNode";
-import BinaryTree from "./BinaryTree";
+import BinarySearchTree from "./BinarySearchTree";
 
 //WIP
 
-class AvlTree<T> extends BinaryTree<T> {
-  protected _getKey: (value: T) => number;
-
+class AvlTree<T> extends BinarySearchTree<T> {
   constructor(keyFunction: (value: T) => number);
   constructor(keyFunction: (value: T) => number, initArray: T[]);
   constructor(keyFunction: (value: T) => number, initArray?: T[]) {
-    super();
-    this._getKey = keyFunction;
+    super(keyFunction);
 
     if (initArray) {
       for (const value of initArray) {
