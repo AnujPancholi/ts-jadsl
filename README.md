@@ -47,7 +47,7 @@ LinkedList<T>(initArray?: T[])
 
 ##### Parameters:
 
-- `initArray: T[]` (optional): Array of elements with which linked list will be initialized
+- `initArray: T[]` (optional): Array of elements with which linked list will be initialized, inserted in order
 
 ##### Methods:
 
@@ -65,7 +65,7 @@ LinkedList<T>(initArray?: T[])
 
 - `toArray(): T[]` Returns an array of elements of the list, in order.
 
-- `getHeadNode(): ListNode<T> | null` Returns the head node of the list if the user does not wish to use the list functions, and just wants a reference to the list node. Returns `null` is list is empty.
+- `getHeadNode(): ListNode<T> | null` Returns the head node of the list if the user does not wish to use the list functions, and just wants a reference to the list node. Returns `null` if list is empty.
 
 ---
 
