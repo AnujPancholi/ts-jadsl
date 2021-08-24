@@ -33,7 +33,7 @@ ListNode<T>(value: T)
 
 ##### Parameters:
 
-- `initArray: T[]` (optional): Array of elements with which linked list will be initialized
+- `value: T` (mandatory): value held by list node.
 
 ### <span id="LinkedList">LinkedList:</span>
 
