@@ -65,7 +65,7 @@ LinkedList<T>(initArray?: T[])
 
 - `toArray(): T[]` Returns an array of elements of the list, in order.
 
-- `getHeadNode(): ListNode<T> | null` Returns the head node of the list if the user does not wish to use the list functions, and just wants a reference to the list node. Returns `null` if list is empty.
+- `getHeadNode(): ListNode<T> | null` Returns the head node of the list, returns `null` if list is empty. **NOTE:** Should be used ONLY if the user does not wish to use the list functions, and just wants a reference to the head node of the list.
 
 ---
 
@@ -79,7 +79,7 @@ Stack<T>(initArray?: T[])
 
 ##### Parameters:
 
-- `initArray: T[]` (optional): Array of elements with which the stack will be initialized (insertion of each element performed in reverse order)
+- `initArray: T[]` (optional): Array of elements with which the stack will be initialized (insertion of each element performed in **reverse order**, i.e, first element of array will be top of stack)
 
 ##### Methods:
 
@@ -175,11 +175,11 @@ BinaryTreeNode<T>(value: T)
 
 - `height(): number` Returns height of the subtree with current node as root.
 
-- `getInorderTraversal(): Array<T>` Returns array of elements in subtree in an inorder fasion.
+- `getInorderTraversal(): Array<T>` Returns array of elements in subtree rooted at node in an inorder fasion.
 
-- `getPreorderTraversal(): Array<T>` Returns array of elements in subtree in a preorder fasion.
+- `getPreorderTraversal(): Array<T>` Returns array of elements in subtree rooted at node in a preorder fasion.
 
-- `getPostorderTraversal(): Array<T>` Returns array of elements in subtree in a postorder fasion.
+- `getPostorderTraversal(): Array<T>` Returns array of elements in subtree rooted at node in a postorder fasion.
 
 - `invert(): BinaryTreeNode<T> | null` Inverts subtree with node as root, returns the node.
 
@@ -195,19 +195,19 @@ Abstract class - therefore, no constructor definition.
 
 ##### Properties:
 
-- `root: BinaryTreeNode<T> | null` Root of the binary tree.
+- `root: BinaryTreeNode<T> | null` Root node of the binary tree.
 
 ##### Methods:
 
-- `getInorderTraversal(): Array<T>` Returns array of elements in subtree in an inorder fasion from root of tree.
+- `getInorderTraversal(): Array<T>` Returns array of elements in tree in an inorder fasion from root of tree.
 
-- `getPreorderTraversal(): Array<T>` Returns array of elements in subtree in a preorder fasion from root of tree.
+- `getPreorderTraversal(): Array<T>` Returns array of elements in tree in a preorder fasion from root of tree.
 
-- `getPostorderTraversal(): Array<T>` Returns array of elements in subtree in a postorder fasion from root of tree.
+- `getPostorderTraversal(): Array<T>` Returns array of elements in tree in a postorder fasion from root of tree.
 
 - `height(): number` Returns height of the tree.
 
-- `invert(): BinaryTree<T>` Inverts the BinaryTree, return the tree.
+- `invert(): BinaryTree<T>` Inverts the BinaryTree, returns the tree.
 
 - `isBalanced(): boolean` Returns `true` if binary tree is height balanced, `false` if otherwise.
 
@@ -269,9 +269,9 @@ AvlTree<T>(keyFunction: (value: T) => number, initArray?: Array<T>)
 
 ##### Methods:
 
-- `insert(value: T): BinarySearchTree<T>` Inserts new node with `value` in BST, returns BST instance.
+- `insert(value: T): AvlTree<T>` Inserts new node with `value` in BST, returns AvlTree instance.
 
-- `delete(value: T): BinarySearchTree<T>` Deletes node with `value` in BST, returns BST instance.
+- `delete(value: T): AvlTree<T>` Deletes node with `value` in BST, returns AvlTree instance.
 
 - `search(value: T): BinaryTreeNode<T> | null` Returns tree node with `value` in BST, `null` if node not found.
 
