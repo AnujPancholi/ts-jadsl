@@ -4,15 +4,8 @@ version: 2.1
 orbs:
   node: circleci/node@4.7.0
 
-workflows:
-  sample:
-    jobs:
-      - node/test:
-          version: "15.1"
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
-      - test-coverage:
+jobs:
+  - test-coverage:
           description: |
               Test Coverage
           executor:
@@ -29,3 +22,13 @@ workflows:
                   command: npm run coverage
                   name: Run NPM Tests
                   working_directory: ~/project
+
+workflows:
+  sample:
+    jobs:
+      - node/test:
+          version: "15.1"
+          # This is the node version to use for the `cimg/node` tag
+          # Relevant tags can be found on the CircleCI Developer Hub
+          # https://circleci.com/developer/images/image/cimg/node
+      - test-coverage:
