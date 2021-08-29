@@ -1,2 +1,4 @@
 # Ignore built ts files
 dist/**/*
+coverage
+node_modules
