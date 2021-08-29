@@ -5,23 +5,23 @@ orbs:
   node: circleci/node@4.7.0
 
 jobs:
-  - test-coverage:
-          description: |
-              Test Coverage
-          executor:
-              name: default
-              tag: "15.1"
-          steps:
-              - checkout
-              - install-packages:
-                  app-dir: ~/project
-                  cache-version: v1
-                  override-ci-command: ""
-                  pkg-manager: npm
-              - run:
-                  command: npm run coverage
-                  name: Run NPM Tests
-                  working_directory: ~/project
+  test-coverage:
+      description: |
+          Test Coverage
+      executor:
+          name: default
+          tag: "15.1"
+      steps:
+          - checkout
+          - install-packages:
+              app-dir: ~/project
+              cache-version: v1
+              override-ci-command: ""
+              pkg-manager: npm
+          - run:
+              command: npm run coverage
+              name: Run NPM Tests
+              working_directory: ~/project
 
 workflows:
   sample:
