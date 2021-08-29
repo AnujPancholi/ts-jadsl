@@ -1,7 +1,7 @@
 {
   "name": "ts-jadsl",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Just another data structures library",
   "main": "index.js",
   "scripts": {
     "coverage": "NODE_ENV=test jest --coverage=true",
@@ -12,9 +12,16 @@
     "precommit": "lint-staged",
     "build": "tsc -p ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "data",
+    "structures",
+    "jadsl",
+    "typescript",
+    "ts",
+    "algorithm"
+  ],
+  "author": "Anuj Pancholi",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
