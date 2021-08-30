@@ -1,4 +1,4 @@
-## JADSL - Just Another Data Structures Library
+<div align=center><h1>JADSL - Just Another Data Structures Library</h1></div>
 
 ### _(WIP)_
 
