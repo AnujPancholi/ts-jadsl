@@ -223,9 +223,10 @@ jobs:
           name: Run NPM Coverage
           working_directory: ~/project
       - coveralls/upload:
-            flag_name: Unit Tests
-            verbose: true
-            parallel_finished: true
+          flag_name: Unit Tests
+          verbose: true
+      - coveralls/upload:
+          parallel_finished: true
 
 workflows:
   sample:
