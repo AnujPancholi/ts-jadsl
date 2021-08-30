@@ -225,8 +225,15 @@ jobs:
       - coveralls/upload:
           flag_name: Unit Tests
           verbose: true
-      - coveralls/upload:
-          parallel_finished: true
+  test-coverage-done:
+      executor:
+        name: default
+        tag: "15.1"
+      steps:
+          - coveralls/upload:
+              verbose: true
+              parallel_finished: true
+
 
 workflows:
   sample:
@@ -237,3 +244,5 @@ workflows:
           # Relevant tags can be found on the CircleCI Developer Hub
           # https://circleci.com/developer/images/image/cimg/node
       - test-coverage
+      - test-coverage-done:
+          requires: [test-coverage]
