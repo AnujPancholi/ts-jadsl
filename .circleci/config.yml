@@ -222,7 +222,9 @@ jobs:
           command: npm run coverage
           name: Run NPM Coverage
           working_directory: ~/project
-      - coveralls/upload
+      - coveralls/upload:
+            flag_name: Unit Tests
+            verbose: true
 
 workflows:
   sample:
