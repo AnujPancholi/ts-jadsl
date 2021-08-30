@@ -225,6 +225,7 @@ jobs:
       - coveralls/upload:
             flag_name: Unit Tests
             verbose: true
+            parallel_finished: true
 
 workflows:
   sample:
