@@ -1,5 +1,7 @@
 <div align=center><h1>JADSL - Just Another Data Structures Library</h1></div>
 
+[![CircleCI](https://circleci.com/gh/AnujPancholi/ts-jadsl/tree/master.svg?style=shield)](https://circleci.com/gh/AnujPancholi/ts-jadsl/tree/master)
+
 ### _(WIP)_
 
 ### Data Structures:
