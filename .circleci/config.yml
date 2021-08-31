@@ -4,6 +4,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.7.0
+  coveralls: coveralls/coveralls@1.0.6
 
 
 commands:
@@ -221,6 +222,18 @@ jobs:
           command: npm run coverage
           name: Run NPM Coverage
           working_directory: ~/project
+      - coveralls/upload:
+          flag_name: Unit Tests
+          verbose: true
+  test-coverage-done:
+      executor:
+        name: default
+        tag: "15.1"
+      steps:
+          - coveralls/upload:
+              verbose: true
+              parallel_finished: true
+
 
 workflows:
   sample:
@@ -231,3 +244,5 @@ workflows:
           # Relevant tags can be found on the CircleCI Developer Hub
           # https://circleci.com/developer/images/image/cimg/node
       - test-coverage
+      - test-coverage-done:
+          requires: [test-coverage]
