@@ -1,6 +1,11 @@
 <div align=center><h1>JADSL - Just Another Data Structures Library</h1></div>
 
+<div align=center>
+
 [![CircleCI](https://circleci.com/gh/AnujPancholi/ts-jadsl/tree/master.svg?style=shield)](https://circleci.com/gh/AnujPancholi/ts-jadsl/tree/master)
+[![Coverage Status](https://coveralls.io/repos/github/AnujPancholi/ts-jadsl/badge.svg?branch=master)](https://coveralls.io/github/AnujPancholi/ts-jadsl?branch=master)
+
+</div>
 
 ### _(WIP)_
 
