@@ -233,6 +233,19 @@ jobs:
           - coveralls/upload:
               verbose: true
               parallel_finished: true
+  npm-publish:
+      executor:
+        name: default
+        tag: "15.1"
+      steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
 
 
 workflows:
@@ -246,3 +259,8 @@ workflows:
       - test-coverage
       - test-coverage-done:
           requires: [test-coverage]
+      - npm-publish:
+          requires: [test-coverage-done]
+          filters:
+            branches:
+              only: master
