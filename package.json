@@ -1,8 +1,9 @@
 {
   "name": "ts-jadsl",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Just another data structures library",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": ["src","dist"],
   "scripts": {
     "coverage": "NODE_ENV=test jest --coverage=true",
