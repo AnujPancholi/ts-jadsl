@@ -249,7 +249,7 @@ jobs:
 
 
 workflows:
-  sample:
+  test-n-publish-workflow:
     jobs:
       - node/test:
           version: "15.1"
