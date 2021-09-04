@@ -225,6 +225,10 @@ jobs:
       - coveralls/upload:
           flag_name: Unit Tests
           verbose: true
+      - persist_to_workspace:
+          root: ~/repo
+          paths: 
+            - .
   test-coverage-done:
       executor:
         name: default
