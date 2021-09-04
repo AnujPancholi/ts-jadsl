@@ -1,6 +1,6 @@
 {
   "name": "ts-jadsl",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Just another data structures library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
